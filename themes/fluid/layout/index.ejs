@@ -1,0 +1,57 @@
+<%
+if (theme.index.slogan.enable) {
+  page.subtitle = theme.index.slogan.text || config.subtitle || ''
+}
+page.banner_img = theme.index.banner_img
+page.banner_img_height = theme.index.banner_img_height
+%>
+
+<% page.posts.each(function (post) { %>
+  <div class="row mb-4 mx-auto">
+    <% var post_url = url_for(post.path) %>
+    <% if(post.index_img != null) { %>
+      <div class="col-12 col-md-4 m-auto">
+        <a href="<%- post_url %>" target="<%- theme.index.post_url_target %>">
+          <img src="<%- post.index_img %>" alt="<%= post.title %>" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    <% } %>
+    <div class="col-12 col-md-8 m-auto">
+      <a href="<%- post_url %>">
+        <p class="h4 index-header"><%= post.title %></p>
+        <% var height_limit = '' %>
+        <% if(post.excerpt.length > 0) { %>
+          <% var excerpt = strip_html(post.excerpt) + "..." %>
+          <% var height_limit = 'style="max-height: none;"' %>
+        <% } else if(theme.index.auto_excerpt.enable){ %>
+          <% var excerpt = strip_html(post.content).substr(0, 500) %>
+        <% } else { %>
+          <% var excerpt = strip_html(post.content) %>
+        <% } %>
+        <div class="index-excerpt" <%- height_limit %>>
+          <div class="index-text mb-1"><%- excerpt %></div>
+        </div>
+      </a>
+
+      <div>
+        <% if(theme.index.post_meta.date ) { %>
+          <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date, config.date_format) %>&nbsp;&nbsp;
+        <% } %>
+        <% if(theme.index.post_meta.category && post.categories.length) { %>
+          <i class="iconfont icon-inbox"></i>
+          <% post.categories.each(function(cate){ %>
+            <a href="/categories/<%- encodeURI(cate.name.replace('.', '-')) %>"><%= cate.name %></a>&nbsp;
+          <% }) %>&nbsp;
+        <% } %>
+        <% if(theme.index.post_meta.tag && post.tags.length) { %>
+          <i class="iconfont icon-tag"></i>
+          <% post.tags.each(function(tag){ %>
+            <a href="/tags/<%- encodeURI(tag.name.replace('.', '-')) %>"><%= tag.name %></a>&nbsp;
+          <% }) %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% }) %>
+
+<%- partial('_partial/paginator') %>
