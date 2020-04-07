@@ -1,7 +1,7 @@
 ---
 title: Vue打包后静态资源路径错误
 tags: [Vue, Bug]
-index_img: /blog/img/blog_banner/vue01.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
 banner_img: /blog/img/banner/b047.jpg
 date: 2018-09-01 21:20:00
 ---
@@ -31,7 +31,7 @@ vue 项目打包完了，dist 文件也生成了，运行一下，又报错了
 
 默认值为`/`，更改为`./`就好了
 
-![](/img/blog/old.assets/20190401001.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/20190401001.png)
 
 - css 中的图片路径错误，找不到图片解决如下
 
@@ -41,4 +41,4 @@ vue 项目打包完了，dist 文件也生成了，运行一下，又报错了
 
 加一行代码，如下
 
-![](/img/blog/old.assets/20190401002.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/20190401002.png)

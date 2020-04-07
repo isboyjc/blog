@@ -2,7 +2,7 @@
 title: Vue 项目中优雅使用 icon
 tags: [Vue]
 categories: Vue实战系列
-index_img: /blog/img/blog_banner/vue01.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
 banner_img: /blog/img/banner/b038.jpg
 date: 2019-11-16 18:00:00
 ---
@@ -173,9 +173,9 @@ symbol 它支持多色图标，兼容性到 ie9+，这也没什么，毕竟某 e
 
 接下来我们在官网搞来一个 svg 图标
 
-![image-20191116165415085](/img/blog/Vue项目中优雅使用icon.assets/image-20191116165415085.png)
+![image-20191116165415085](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20191116165415085.png)
 
-![image-20191116165528974](/img/blog/Vue项目中优雅使用icon.assets/image-20191116165528974.png)
+![image-20191116165528974](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20191116165528974.png)
 
 点击 svg 下载到`icons/svg`目录下修改文件名为`qq.svg`，或者是在`icons/svg`目录下新建一个`qq.svg`文件，把复制的 svg 代码放进去也可以
 
@@ -213,12 +213,9 @@ function resolve(dir) {
 module.exports = {
   // 一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例
   // 允许对内部的 webpack 配置进行更细粒度的修改
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     // 配置svg默认规则排除icons目录中svg文件处理
-    config.module
-      .rule("svg")
-      .exclude.add(resolve("src/icons"))
-      .end()
+    config.module.rule("svg").exclude.add(resolve("src/icons")).end()
 
     // 新增icons规则，设置svg-sprite-loader处理icons目录中svg文件
     config.module
@@ -230,7 +227,7 @@ module.exports = {
       .loader("svg-sprite-loader")
       .options({ symbolId: "icon-[name]" })
       .end()
-  }
+  },
 }
 ```
 
@@ -315,12 +312,12 @@ export default {
   props: {
     iconClass: {
       type: String,
-      required: true
+      required: true,
     },
     className: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     iconName() {
@@ -332,8 +329,8 @@ export default {
       } else {
         return "svg-icon"
       }
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>

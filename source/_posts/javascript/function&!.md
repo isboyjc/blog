@@ -1,7 +1,7 @@
 ---
 title: function与感叹号
 tags: [JavaScript]
-index_img: /blog/img/blog_banner/js02.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
 banner_img: /blog/img/banner/b035.jpg
 date: 2018-06-25 20:30:00
 ---
@@ -11,7 +11,7 @@ date: 2018-06-25 20:30:00
 相信大家都看到过在很多 js 代码中函数前面会有一个感叹号，这是什么意思呢？
 
 ```js
-!(function() {
+!(function () {
   alert("我最帅！")
 })() // true
 ```
@@ -29,10 +29,10 @@ function(){alert('无敌了')}()			// 语法错误
 匿名函数自调一般我们都会采用下面两种写法
 
 ```js
-;(function() {
+;(function () {
   alert("嗯，输出了")
 })()
-;(function() {
+;(function () {
   alert("嗯，也输出了")
 })()
 ```
@@ -68,7 +68,7 @@ function(){'没错，又是我'}()		// Unexpected token
 注意这条代码和上面那条是不一样的，这条代码函数没有名字，众所周知，函数只有在函数表达式中才可以匿名，所以这里的错误是因为函数没有名字，之后的`()`根本就不会执行
 
 ```js
-var fn = function() {
+var fn = function () {
   alert(250)
 }
 fn()
@@ -90,7 +90,7 @@ fn()
 是因为`fn`是函数名，它指向了这个函数，在当前的作用域中当然可以调用了
 
 ```js
-;(function() {
+;(function () {
   alert(111)
 })()
 ```
@@ -108,34 +108,34 @@ fn()
 其实有很多种方法都可以把函数变成表达式
 
 ```js
-!(function() {
+!(function () {
   alert(1)
 })() + // true
-(function() {
+(function () {
   alert(1)
 })() - // NAN
-  (function() {
+  (function () {
     alert(1)
   })() // NAN
 
-~(function() {
+~(function () {
   alert(1)
 })() // -1
 
-new (function() {
+new (function () {
   alert(1)
 })() // Object
 
-delete (function() {
+delete (function () {
   alert(1)
 })() // true
 
-void (function() {
+void (function () {
   alert(1)
 })()(
   // undefined
 
-  function() {
+  function () {
     alert(1)
   }
 )() // undefined

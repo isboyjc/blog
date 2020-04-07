@@ -2,7 +2,7 @@
 title: 「硬核JS」深入了解异步解决方案
 tags: [JavaScript]
 categories: 硬核JS系列
-index_img: /blog/img/blog_banner/js01.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
 banner_img: /blog/img/banner/b037.jpg
 date: 2020-02-14 14:00:00
 ---
@@ -126,7 +126,7 @@ jquery 实现比较简单，因为 jq 为我们封装好了方法，使用即可
 $("body").on("done", fn2)
 
 function fn1() {
-  setTimeout(function() {
+  setTimeout(function () {
     $("body").trigger("done")
   }, 2000)
 }
@@ -170,7 +170,7 @@ fn1()
 其实我们都用过发布订阅模式，比如我们在 DOM 节点上绑定一个事件函数，就已经使用了
 
 ```js
-document.body.addEventListener("click", function() {
+document.body.addEventListener("click", function () {
   console.log(1)
 })
 ```
@@ -204,7 +204,7 @@ class Emitter {
     // 判断该触发事件是否存在
     if (!this._listener[type]) return
     // 遍历执行该事件回调数组并传递参数
-    this._listener[type].forEach(callback => callback(...rest))
+    this._listener[type].forEach((callback) => callback(...rest))
   }
 }
 ```
@@ -217,11 +217,11 @@ class Emitter {
 // 创建一个emitter实例
 const emitter = new Emitter()
 
-emitter.on("done", function(arg1, arg2) {
+emitter.on("done", function (arg1, arg2) {
   console.log(arg1, arg2)
 })
 
-emitter.on("done", function(arg1, arg2) {
+emitter.on("done", function (arg1, arg2) {
   console.log(arg2, arg1)
 })
 
@@ -359,10 +359,10 @@ Promise.prototype.then(onFulfilled[, onRejected])
 
 ```js
 fn1().then(
-  data => {
+  (data) => {
     console.log(data)
   },
-  err => {
+  (err) => {
     console.log(err)
   }
 )
@@ -389,9 +389,9 @@ let p = new Promise((resolve, reject) => {
   resolve(1)
 })
 
-p.then(data => {
+p.then((data) => {
   return 2 // 返回了一个普通值
-}).then(data => {
+}).then((data) => {
   console.log(data) // 2
 })
 ```
@@ -405,9 +405,9 @@ let p = new Promise((resolve, reject) => {
   resolve(1)
 })
 
-p.then(data => {
+p.then((data) => {
   // 无return语句
-}).then(data => {
+}).then((data) => {
   console.log(data) // undefined
 })
 ```
@@ -421,20 +421,20 @@ let p = new Promise((resolve, reject) => {
   resolve(1)
 })
 
-p.then(data => 2)
+p.then((data) => 2)
   .then(
-    data => {
+    (data) => {
       throw "this is err"
     },
-    err => {
+    (err) => {
       console.log("err1:" + err)
     }
   )
   .then(
-    data => {
+    (data) => {
       console.log(data)
     },
-    err => {
+    (err) => {
       console.log("err2:" + err) // err2:this is err
     }
   )
@@ -449,10 +449,10 @@ let p = new Promise((resolve, reject) => {
   resolve(1)
 })
 
-p.then(data => 2)
+p.then((data) => 2)
   .then()
   .then()
-  .then(data => {
+  .then((data) => {
     console.log(data) // 2
   })
 ```
@@ -466,11 +466,11 @@ let p = new Promise((resolve, reject) => {
   resolve(1)
 })
 
-p.then(data => {
+p.then((data) => {
   return new Promise((resolve, reject) => {
     resolve(2)
   })
-}).then(data => {
+}).then((data) => {
   console.log(data) // 2
 })
 ```
@@ -484,7 +484,7 @@ p.then(data => {
 ```js
 p.catch(onRejected)
 
-p.catch(function(reason) {
+p.catch(function (reason) {
   // 拒绝
 })
 ```
@@ -498,10 +498,10 @@ p.catch(function(reason) {
 
 ```js
 fn1()
-  .then(data => {
+  .then((data) => {
     console.log(data)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
   })
 ```
@@ -514,14 +514,14 @@ fn1()
 
 ```js
 fn1()
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
     return err
   })
-  .then(data => {
+  .then((data) => {
     console.log(data)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
   })
 ```
@@ -537,7 +537,7 @@ finally，英文是`最后`的意思，此方法是`ES2018`的标准
 ```js
 p.finally(onFinally)
 
-p.finally(function() {
+p.finally(function () {
   // 返回状态为(resolved 或 rejected)
 })
 ```
@@ -559,7 +559,7 @@ Promise.resolve(value)
 ```js
 const p = Promise.resolve(123)
 
-Promise.resolve(p).then(value => {
+Promise.resolve(p).then((value) => {
   console.log(value) // 123
 })
 ```
@@ -570,10 +570,10 @@ Promise.resolve(p).then(value => {
 
 ```js
 Promise.reject(123)
-  .then(data => {
+  .then((data) => {
     console.log(data)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log("err:" + err)
   })
 
@@ -593,7 +593,7 @@ let p3 = Promise.resolve(3)
 
 let p = Promise.all([p1, p2, p3])
 
-p.then(data => {
+p.then((data) => {
   console.log(data) // [1,2,3]
 })
 ```
@@ -608,9 +608,9 @@ let p2 = Promise.resolve(2)
 let p3 = Promise.reject(3)
 
 let p = Promise.all([p1, p2, p3])
-p.then(data => {
+p.then((data) => {
   console.log(data)
-}).catch(err => {
+}).catch((err) => {
   console.log("err:" + err) // 3
 })
 ```
@@ -634,7 +634,7 @@ const p2 = new Promise((resolve, reject) => {
   setTimeout(resolve, 500, "2")
 })
 
-Promise.race([p1, p2]).then(value => {
+Promise.race([p1, p2]).then((value) => {
   console.log(value) // 2
 })
 ```
@@ -649,7 +649,7 @@ Promise.race([p1, p2]).then(value => {
 
 ```js
 let fn = () => console.log("fn")
-Promise.resolve(fn).then(cb => cb())
+Promise.resolve(fn).then((cb) => cb())
 console.log("hahaha")
 
 // hahaha
@@ -664,11 +664,11 @@ console.log("hahaha")
 
 ```js
 const fn = () => console.log("fn")
-;(() => new Promise(resolve => resolve(fn())))()
+;(() => new Promise((resolve) => resolve(fn())))()
   .then(() => {
     console.log(222)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
   })
 
@@ -687,7 +687,7 @@ const fn = () => console.log("fn")
   .then(() => {
     console.log(222)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
   })
 
@@ -708,7 +708,7 @@ Promise.try(fn)
   .then(() => {
     console.log(222)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
   })
 
@@ -748,7 +748,7 @@ Promise.reject(1)
   .then(() => {
     console.log("我是对的")
   })
-  .then(null, err => {
+  .then(null, (err) => {
     console.log("err:" + err) // err:1
   })
 
@@ -758,7 +758,7 @@ Promise.reject(1)
   .then(() => {
     console.log("我是对的")
   })
-  .catch(err => {
+  .catch((err) => {
     console.log("err:" + err) // err:1
   })
 ```
@@ -780,7 +780,7 @@ Promise.resolve()
   .then(() => {
     console.log("Task 2")
   })
-  .catch(err => {
+  .catch((err) => {
     console.log("err:" + err)
   })
   .then(() => {
@@ -799,7 +799,7 @@ Promise.resolve()
 
 可参考下图
 
-![image-20200201231714043](/img/blog/「硬核JS」深入了解异步解决方案.assets/image-20200201231714043.png)
+![image-20200201231714043](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200201231714043.png)
 
 promise 的缺点之一就是无法让 promise 中断，利用这个特性可以让 Promise 中断执行，也算一种办法吧
 
@@ -811,7 +811,7 @@ promise 的缺点之一就是无法让 promise 中断，利用这个特性可以
 const p = new Promise((resolve, reject) => {
   throw new Error("这是一个错误")
 })
-p.catch(error => {
+p.catch((error) => {
   console.log(error)
 })
 ```
@@ -826,7 +826,7 @@ const p = new Promise((resolve, reject) => {
     throw new Error("这是一个错误")
   }, 0)
 })
-p.catch(error => {
+p.catch((error) => {
   console.log(error)
 })
 ```
@@ -858,7 +858,7 @@ const p = new Promise((resolve, reject) => {
     }
   }, 0)
 })
-p.catch(error => {
+p.catch((error) => {
   console.log(error)
 })
 ```
@@ -913,7 +913,7 @@ function Promise(executor) {
   function reject(reason) {}
 }
 
-Promise.prototype.then = function(onFulfilled, onRejected) {}
+Promise.prototype.then = function (onFulfilled, onRejected) {}
 ```
 
 如上所示，我们创建了一个 Promise 构造方法，`state`属性保存了 Promise 对象的状态，使用`value`属性保存 Promise 对象执行成功的结果，失败原因使用`reason`属性保存，这些命名完全贴合 Promises/A+标准
@@ -983,7 +983,7 @@ function reject(reason) {
 所以，then 方法的实现看起来挺简单，根据 state 状态来调用不同的回调函数即可
 
 ```js
-Promise.prototype.then = function(onFulfilled, onRejected) {
+Promise.prototype.then = function (onFulfilled, onRejected) {
   if (this.state === "resolved") {
     if (typeof onFulfilled === "function") {
       onFulfilled(this.value)
@@ -1008,7 +1008,7 @@ let p = new Promise((resolve, reject) => {
   resolve(1)
 })
 
-p.then(data => console.log(data)) // 1
+p.then((data) => console.log(data)) // 1
 ```
 
 嗯，符合预期，再来试下异步代码
@@ -1068,7 +1068,7 @@ function Promise(executor) {
 我们还需要改善`then`方法，在`then`方法执行时如果状态是等待态，就将其回调函数存入对应数组
 
 ```js
-Promise.prototype.then = function(onFulfilled, onRejected) {
+Promise.prototype.then = function (onFulfilled, onRejected) {
   // 新增等待态判断，此时异步代码还未走完，回调入数组队列
   if (this.state === "pending") {
     if (typeof onFulfilled === "function") {
@@ -1102,7 +1102,7 @@ function resolve(value) {
   if (_this.state === "pending") {
     _this.value = value
     // 遍历执行成功回调
-    _this.onResolvedCallbacks.forEach(cb => cb(value))
+    _this.onResolvedCallbacks.forEach((cb) => cb(value))
     _this.state = "resolved"
   }
 }
@@ -1111,7 +1111,7 @@ function reject(reason) {
   if (_this.state === "pending") {
     _this.reason = reason
     // 遍历执行失败回调
-    _this.onRejectedCallbacks.forEach(cb => cb(reason))
+    _this.onRejectedCallbacks.forEach((cb) => cb(reason))
     _this.state = "rejected"
   }
 }
@@ -1142,12 +1142,13 @@ Promise 的`then`方法可以链式调用，这也是 Promise 的精华之一，
 需求中说如果`then`方法没有传入任何回调，则继续向下传递，但是每个`then`中又返回一个新的 Promise，也就是说当`then`方法中没有回调时，我们需要把接收到的值继续向下传递，这个其实好办，只需要在判断回调参数不为函数时我们把他变成回调函数返回普通值即可
 
 ```js
-Promise.prototype.then = function(onFulfilled, onRejected) {
-  onFulfilled = typeof onFulfilled === "function" ? onFulfilled : value => value
+Promise.prototype.then = function (onFulfilled, onRejected) {
+  onFulfilled =
+    typeof onFulfilled === "function" ? onFulfilled : (value) => value
   onRejected =
     typeof onRejected === "function"
       ? onRejected
-      : err => {
+      : (err) => {
           throw err
         }
   // ...
@@ -1159,12 +1160,13 @@ Promise.prototype.then = function(onFulfilled, onRejected) {
 现在的`then`方法变成了
 
 ```js
-Promise.prototype.then = function(onFulfilled, onRejected) {
-  onFulfilled = typeof onFulfilled === "function" ? onFulfilled : value => value
+Promise.prototype.then = function (onFulfilled, onRejected) {
+  onFulfilled =
+    typeof onFulfilled === "function" ? onFulfilled : (value) => value
   onRejected =
     typeof onRejected === "function"
       ? onRejected
-      : err => {
+      : (err) => {
           throw err
         }
 
@@ -1187,12 +1189,13 @@ Promise.prototype.then = function(onFulfilled, onRejected) {
 既然每个`thne`都反回一个新的 Promise，那么我们就先在`then`中创建一个 Promise 实例返回，开始改造
 
 ```js
-Promise.prototype.then = function(onFulfilled, onRejected) {
-  onFulfilled = typeof onFulfilled === "function" ? onFulfilled : value => value
+Promise.prototype.then = function (onFulfilled, onRejected) {
+  onFulfilled =
+    typeof onFulfilled === "function" ? onFulfilled : (value) => value
   onRejected =
     typeof onRejected === "function"
       ? onRejected
-      : err => {
+      : (err) => {
           throw err
         }
 
@@ -1282,7 +1285,7 @@ function resolvePromise(promise2, x, resolve, reject) {
 例：
 
 ```js
-let promise2 = p.then(data => {
+let promise2 = p.then((data) => {
   return promise2
 })
 
@@ -1353,10 +1356,10 @@ if (x !== null && (typeof x === "object" || typeof x === "function")) {
       // then是function，那么执行Promise
       then.call(
         x,
-        y => {
+        (y) => {
           resolve(y)
         },
-        r => {
+        (r) => {
           reject(r)
         }
       )
@@ -1375,7 +1378,7 @@ if (x !== null && (typeof x === "object" || typeof x === "function")) {
 此时，我们还要考虑到一种情况，如果 Promise 对象转为成功态或是失败时传入的还是一个 Promise 对象，此时应该继续执行，直到最后的 Promise 执行完，例如下面这种
 
 ```js
-Promise.resolve(1).then(data => {
+Promise.resolve(1).then((data) => {
   return new Promise((resolve, reject) => {
     // resolve传入的还是Promise
     resolve(
@@ -1398,11 +1401,11 @@ if (x !== null && (typeof x === "object" || typeof x === "function")) {
     if (typeof then === "function") {
       then.call(
         x,
-        y => {
+        (y) => {
           // 递归调用，传入y若是Promise对象，继续循环
           resolvePromise(promise2, y, resolve, reject)
         },
-        r => {
+        (r) => {
           reject(r)
         }
       )
@@ -1430,13 +1433,13 @@ if (x !== null && (typeof x === "object" || typeof x === "function")) {
     if (typeof then === "function") {
       then.call(
         x,
-        y => {
+        (y) => {
           if (called) return
           called = true
           // 递归调用，传入y若是Promise对象，继续循环
           resolvePromise(promise2, y, resolve, reject)
         },
-        r => {
+        (r) => {
           if (called) return
           called = true
           reject(r)
@@ -1478,12 +1481,13 @@ setTimeout(() => {
 现在我们的终极版`then`方法就大功告成了
 
 ```js
-Promise.prototype.then = function(onFulfilled, onRejected) {
-  onFulfilled = typeof onFulfilled === "function" ? onFulfilled : value => value
+Promise.prototype.then = function (onFulfilled, onRejected) {
+  onFulfilled =
+    typeof onFulfilled === "function" ? onFulfilled : (value) => value
   onRejected =
     typeof onRejected === "function"
       ? onRejected
-      : err => {
+      : (err) => {
           throw err
         }
 
@@ -1542,7 +1546,7 @@ Promise.prototype.then = function(onFulfilled, onRejected) {
 实现了最复杂的`then`方法后，`catch`实现非常简单，一看就懂了
 
 ```js
-Promise.prototype.catch = function(onRejected) {
+Promise.prototype.catch = function (onRejected) {
   return this.then(null, onRejected)
 }
 ```
@@ -1557,7 +1561,7 @@ Promise.prototype.catch = function(onRejected) {
 
 ```js
 // promises-aplus-tests测试
-Promise.defer = Promise.deferred = function() {
+Promise.defer = Promise.deferred = function () {
   let defer = {}
   defer.promise = new Promise((resolve, reject) => {
     defer.resolve = resolve
@@ -1584,7 +1588,7 @@ npx promises-aplus-tests Promise.js
 
 静等片刻，如果控制台没有爆红就是成功了，符合规范，如图所示
 
-![image-20200206222942803](../../../../../Documents/image-20200206222942803.png)
+![image-20200206222942803](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200206222942803.png)
 
 #### 完整代码
 
@@ -1640,7 +1644,7 @@ js 中不同的数据类型如(Array/Object/Set)等等遍历方式都各有不�
 
 ```js
 const obj = {
-  [Symbol.iterator]: function() {}
+  [Symbol.iterator]: function () {},
 }
 ```
 
@@ -1705,24 +1709,24 @@ let obj = {
   name: "tom",
   age: 18,
   gender: "男",
-  intro: function() {
+  intro: function () {
     console.log("my name is " + this.name)
   },
-  [Symbol.iterator]: function() {
+  [Symbol.iterator]: function () {
     let i = 0
     // 获取当前对象的所有属性并形成一个数组
     let keys = Object.keys(this)
     return {
-      next: function() {
+      next: function () {
         return {
           // 外部每次执行next都能得到数组中的第i个元素
           value: keys[i++],
           // 如果数组的数据已经遍历完则返回true
-          done: i > keys.length
+          done: i > keys.length,
         }
-      }
+      },
     }
-  }
+  },
 }
 
 for (let attr of obj) {
@@ -1899,7 +1903,7 @@ it.next("我是b")
 
 通过`next`调用我们可以看到，第一次调用就输出了`start & 1` ，意味着`yield`停止时，后面代码是执行了的
 
-![image-20200207234938429](/img/blog/「硬核JS」深入了解异步解决方案.assets/image-20200207234938429.png)
+![image-20200207234938429](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200207234938429.png)
 
 如上图所示，如果将说`yield`比做一道墙，那么墙右边和上面是一块，墙左边和下面是一块，这样说应该够直白了吧
 
@@ -2134,7 +2138,7 @@ function fn(m) {
 fn(x + 5)
 
 // thunk实现思路
-var thunk = function() {
+var thunk = function () {
   return x + 5
 }
 
@@ -2150,9 +2154,9 @@ JS 是传值调用，它的 Thunck 函数含义有所不同
 ```js
 fs.readFile(fileName, callback)
 
-const Thunk = function(fn) {
-  return function(...args) {
-    return function(callback) {
+const Thunk = function (fn) {
+  return function (...args) {
+    return function (callback) {
       return fn.call(this, ...args, callback)
     }
   }
@@ -2185,7 +2189,7 @@ function run(fn) {
 }
 
 // 模拟异步方法
-let sleep = function(n, callback) {
+let sleep = function (n, callback) {
   setTimeout(() => {
     console.log(n)
     callback && callback(n)
@@ -2196,7 +2200,7 @@ let sleep = function(n, callback) {
 let sleepThunk = Thunk(sleep)
 
 // Generator函数
-let gen = function*() {
+let gen = function* () {
   let f1 = yield sleepThunk(1000)
   let f2 = yield sleepThunk(1500)
   // ...
@@ -2252,7 +2256,7 @@ function run(gen) {
     // 判断是否结束，结束返回value，value是一个Promise
     if (result.done) return result.value
     // 递归
-    result.value.then(data => {
+    result.value.then((data) => {
       next(data)
     })
   }
@@ -2260,8 +2264,8 @@ function run(gen) {
 }
 
 // 模拟异步方法进行Promise转换
-let sleepPromise = function(n) {
-  return new Promise(function(resolve, reject) {
+let sleepPromise = function (n) {
+  return new Promise(function (resolve, reject) {
     setTimeout(() => {
       console.log(n)
       resolve(n)
@@ -2270,7 +2274,7 @@ let sleepPromise = function(n) {
 }
 
 // Generator函数
-let gen = function*() {
+let gen = function* () {
   let f1 = yield sleepPromise(1000)
   let f2 = yield sleepPromise(1500)
   // ...
@@ -2294,7 +2298,7 @@ co 函数库的源码也很简单，只有几十行代码
 ```js
 function co(gen) {
   var ctx = this
-  return new Promise(function(resolve, reject) {})
+  return new Promise(function (resolve, reject) {})
 }
 ```
 
@@ -2308,7 +2312,7 @@ function co(gen) {
 function co(gen) {
   var ctx = this
 
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     if (typeof gen === "function") gen = gen.call(ctx)
     if (!gen || typeof gen.next !== "function") return resolve(gen)
   })
@@ -2323,7 +2327,7 @@ function co(gen) {
 function co(gen) {
   var ctx = this
 
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     if (typeof gen === "function") gen = gen.call(ctx)
     if (!gen || typeof gen.next !== "function") return resolve(gen)
 
@@ -2365,16 +2369,16 @@ co 支持并发的异步操作，即允许某些操作同时进行，等到它�
 
 ```js
 // 数组的写法
-co(function*() {
+co(function* () {
   var res = yield [Promise.resolve(1), Promise.resolve(2)]
   console.log(res)
 }).catch(onerror)
 
 // 对象的写法
-co(function*() {
+co(function* () {
   var res = yield {
     1: Promise.resolve(1),
-    2: Promise.resolve(2)
+    2: Promise.resolve(2),
   }
   console.log(res)
 }).catch(onerror)
@@ -2442,7 +2446,7 @@ console.log(res)
 既然 `async` 返回一个 Promise，那么我们也可以用 `then` 链来处理这个 Promise 对象，如下
 
 ```js
-test().then(res => {
+test().then((res) => {
   console.log(res)
 })
 ```
@@ -2488,7 +2492,7 @@ async function fn() {
 
 ```js
 function analogAsync(n) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => resolve(n + 500), n)
   })
 }
@@ -2515,9 +2519,9 @@ function fn3(n) {
 function fn() {
   let time1 = 0
   fn1(time1)
-    .then(time2 => fn2(time2))
-    .then(time3 => fn3(time3))
-    .then(res => {
+    .then((time2) => fn2(time2))
+    .then((time3) => fn3(time3))
+    .then((res) => {
       console.log(`result is ${res}`)
     })
 }
@@ -2603,7 +2607,7 @@ asyncAjax()
 
 也可以直接加我微信，进交流群学习交流
 
-![稿定设计导出-20200111-143924](/img/blog/「硬核JS」深入了解异步解决方案.assets/稿定设计导出-20200111-143924.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/asdsdf.png)
 
 > 参考
 >

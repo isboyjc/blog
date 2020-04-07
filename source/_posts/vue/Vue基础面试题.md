@@ -1,8 +1,8 @@
 ---
 title: Vue 基础面试题
 tags: [Vue, 面试]
-categories: 面试系列
-index_img: /blog/img/blog_banner/vue01.jpg
+categories: Web面试整合
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
 banner_img: /blog/img/banner/b033.jpg
 date: 2019-06-10 19:00:00
 ---
@@ -100,15 +100,15 @@ vue的数据双向绑定 将MVVM作为数据绑定的入口，整合Observer，C
 <script type="text/javascript">
   var obj = {}
   Object.defineProperty(obj, "txt", {
-    get: function() {
+    get: function () {
       return obj
     },
-    set: function(newValue) {
+    set: function (newValue) {
       document.getElementById("txt").value = newValue
       document.getElementById("show").innerHTML = newValue
-    }
+    },
   })
-  document.addEventListener("keyup", function(e) {
+  document.addEventListener("keyup", function (e) {
     obj.txt = e.target.value
   })
 </script>

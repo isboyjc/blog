@@ -1,8 +1,8 @@
 ---
 title: GitHub 免费搭建个人网站
-tags: [GitHub]
+tags: [GitHub, 安利]
 categories: 安利系列
-index_img: /blog/img/blog_banner/github01.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/github01.jpg
 banner_img: /blog/img/banner/b042.jpg
 date: 2018-09-06 23:30:00
 ---
@@ -33,13 +33,13 @@ date: 2018-09-06 23:30:00
 
 **服务器**就是网络中为用户提供服务的专用设备。分为访问、文件、数据库、通信等不同功能的服务器。那么要怎样拥有一个服务器呢，(用钱就好了！！！)，正规途径是在网上买一个服务器，看图
 
-![图1](/img/blog/old.assets/fuwuqi1.png)
+![图1](https://gitee.com/IsboyJC/PictureBed/raw/master/other//fuwuqi1.png)
 
 刚开始玩的话买一个空间小的相对便宜的就行，当然有钱请随意！！！
 
 **域名**就是访问网站的网址，怎样获取域名，没错还是用钱，看图
 
-![图2](/img/blog/old.assets/yuming1.png)
+![图2](https://gitee.com/IsboyJC/PictureBed/raw/master/other//yuming1.png)
 
 我的域名是在阿里云注册的，域名也是有区别的，后缀不一，长短不一，相对价钱就不一，如我的域名：
 
@@ -67,11 +67,11 @@ date: 2018-09-06 23:30:00
 
 登录[GitHub.com](https://github.com)官网(全英的界面，英语不好的朋友请用谷歌翻译！)
 
-![](/img/blog/old.assets/github.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//github.PNG)
 
 登录后点击右上角的加号，进入`new repository`选项新建一个储存库,看到以下界面
 
-![](/img/blog/old.assets/ku.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//ku.PNG)
 
 首先输入库名，仓库名字为固定格式
 
@@ -86,21 +86,21 @@ date: 2018-09-06 23:30:00
 
 最后点击绿色按钮提交创建，提交后如下图
 
-![](/img/blog/old.assets/create.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//create.PNG)
 
 点击`README`进行初始化 README ，就是用`markdown`语法编写此储存库的具体说明或者说简单的展示，`markdown`语法十分简单，我也写了相应的`markdown`语法教程[markdown 和 Typora--传送门](#)，有兴趣可以了解一下，当然这里不写也是可以的，直接点击下面绿色按钮提交即可
 
-![](/img/blog/old.assets/anniu.PNG)
+![](../img/anniu.PNG)
 
 再然后是如下界面：
 
-![](/img/blog/old.assets/end.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//end.PNG)
 
 上面图片红色框中依次翻译为：创建新文件、上传文件、查找文件、克隆或下载
 
 点击`Upload files`上传文件
 
-![](/img/blog/old.assets/endd.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//endd.PNG)
 
 点击`choose your files`选择文件上传，最后绿色按钮提交(**注：**上传的文件为你的网站文件，默认访问`index.html`文件所以你的网站首页一定要是`index.html`，css、js、img 文件同 html 文件一同拖拽进去即可，网速慢的话上传速度较慢请耐心等待，上传失败请重新上传)
 
@@ -118,11 +118,11 @@ date: 2018-09-06 23:30:00
 
 进入你的域名控制台，我的域名是阿里云注册的，所以本文以阿里云为例，如下图
 
-![](/img/blog/old.assets/con1.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//con1.PNG)
 
 点击解析进入解析添加解析，如下图
 
-![](/img/blog/old.assets/jiexi.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//jiexi.PNG)
 
 **记录类型**
 
@@ -186,7 +186,7 @@ TTL 指的是域名解析的生命周期，简单来说它表示 DNS 服务器�
 
 **在 GitHub 仓库页添加 CNAME 文件**
 
-![](/img/blog/old.assets/cname.PNG)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other//cname.PNG)
 
 还是上传文件的这个页面，点击`Create new file`创建一个新文件，文件名为`CNAME`，注意是大写，文件内容写你解析的域名，例：
 

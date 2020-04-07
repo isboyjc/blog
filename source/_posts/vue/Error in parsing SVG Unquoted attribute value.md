@@ -1,7 +1,7 @@
 ---
 title: Vue中npm run build报“Error in parsing SVG Unquoted attribute value”
 tags: [Vue, Bug]
-index_img: /blog/img/blog_banner/vue01.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
 banner_img: /blog/img/banner/b045.jpg
 date: 2018-09-11 21:30:00
 ---
@@ -32,7 +32,7 @@ date: 2018-09-11 21:30:00
 # mui/css/iconfont.css
 ```
 
-![001](/img/blog/old.assets/one.png)
+![001](https://gitee.com/IsboyJC/PictureBed/raw/master/other/one.png)
 
 不要以为完了，还有
 
@@ -42,7 +42,7 @@ date: 2018-09-11 21:30:00
 # mui/css/mui.css
 ```
 
-![002](/img/blog/old.assets/two.png)
+![002](https://gitee.com/IsboyJC/PictureBed/raw/master/other/two.png)
 
 以上两个文件修改了再次 build
 

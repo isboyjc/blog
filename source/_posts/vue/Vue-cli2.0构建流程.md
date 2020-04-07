@@ -1,12 +1,12 @@
 ---
 title: Vue-cli2.0构建流程
 tags: [Vue]
-index_img: /blog/img/blog_banner/vue01.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
 banner_img: /blog/img/banner/b036.jpg
 date: 2018-10-12 21:30:00
 ---
 
-# Vue-cli2.0 构建流程
+# Vue-cli 构建流程
 
 学习 vue 时，总觉得 vue-cli 搭建很复杂，其实也不过如此，使用别人搭建好的包在打包时总会报一些莫名其妙的错误，还是自己动手比较可靠，就像我总觉得我自己写的代码是最好的\^\_^
 
@@ -20,7 +20,7 @@ node - v
 
 如果出现 NodeJS 的版本号，表示你已经安装了 NodeJS
 
-![](/img/blog/old.assets/01.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/01.PNG)
 
 反之就是没有安装 NodeJS 了
 
@@ -56,21 +56,21 @@ vue-init <template-name> [project-name]
 # [project-name]  —— 项目名称
 ```
 
-![](/img/blog/old.assets/02.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/02.PNG)
 
 回答完问题稍等片刻，初始化成功之后就会显示以下内容
 
-![](/img/blog/old.assets/03.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/03.PNG)
 
 然后根据提示 cd 进你的项目目录
 
 输入`npm run dev`运行项目，如下
 
-![](/img/blog/old.assets/04.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/04.PNG)
 
 这个时候就可以在浏览器输入 `http://localhost:8080` ，出现以下界面脚手架搭建成功
 
-![](/img/blog/old.assets/05.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/05.PNG)
 
 以上就是 vue-cli 搭建的全部过程
 

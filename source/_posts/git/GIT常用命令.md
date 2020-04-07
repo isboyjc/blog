@@ -1,7 +1,7 @@
 ---
 title: GIT常用命令
 tags: [Git]
-index_img: /blog/img/blog_banner/git03.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/github03.jpeg
 banner_img: /blog/img/banner/b044.jpg
 date: 2019-04-12 21:30:00
 ---
