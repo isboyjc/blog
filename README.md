@@ -1,7 +1,8 @@
 # blog
 
 你好，我是 isboyjc，欢迎大家关注微信公众号「不正经的前端」也可以加入交流群
-
+[文章地址](https://github.com/isboyjc/blog/issues)
+[文章静态站](https://isboyjc.top/blog)
 [掘金传送门](https://juejin.im/user/5cdc302f6fb9a032155705c4/posts)
 [简书传送门](https://www.jianshu.com/u/fe7819267ca1)
 
