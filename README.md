@@ -14,7 +14,7 @@
 
 - [「一道面试题」小程序与H5的区别](https://github.com/isboyjc/blog/issues/13)
 
-- 更新中
+- 更新中。。。
 
 Vue实战
 
