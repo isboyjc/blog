@@ -471,4 +471,4 @@ DNS 客户机可通过从以前查询获得的缓存信息就地应答查询，D
 
 哦，还有，可以加个好友加下群一起交流噻，公众号【不正经的前端】也欢迎关注呦 😄
 
-![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/qqz1.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200508193235095.png)
