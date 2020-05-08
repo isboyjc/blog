@@ -2607,7 +2607,7 @@ asyncAjax()
 
 也可以直接加我微信，进交流群学习交流
 
-![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/asdsdf.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/qqz.png)
 
 > 参考
 >

@@ -602,7 +602,7 @@ Node会先执行所有类型为 timers 的 MacroTask，然后执行所有的 Mic
 
 欢迎大家关注【不正经的前端】，加我，加群，或者拿一些资料都可以的，时不时发一些优质原创
 
-![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/20200111-1439241.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/qqz.png)
 
 > 参考
 >
