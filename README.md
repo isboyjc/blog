@@ -22,7 +22,7 @@
 
 - [「一道面试题」输入 URL 到渲染全面梳理中-页面渲染篇](https://github.com/isboyjc/blog/issues/15)
 
-- [「一道面试题」输入 URL 到渲染全面梳理下-总结篇](https://github.com/isboyjc/blog/issues/16) 下文
+- [「一道面试题」输入 URL 到渲染全面梳理下-总结篇](https://github.com/isboyjc/blog/issues/16)
 
 - 更新中。。。
 
