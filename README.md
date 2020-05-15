@@ -1,8 +1,8 @@
 # blog
 
-你好，我是「句末」一般博客都是叫「isboyjc」，唉，现在也是着实后悔这名字，没办法啊 😄，一名喜欢写博客分享的前端，欢迎大家关注我的微信公众号「不正经的前端」也可以加入交流群
+你好，我是「句末」一般写博客都是叫「isboyjc」，唉，现在也是着实后悔这名字，没办法啊 😄，一名喜欢写博客分享的前端，欢迎大家关注我的微信公众号「不正经的前端」也可以加入交流群，个人比较喜欢交朋友，也可以加我微信交流哦
 
-- [文章地址-GitHubIssues](https://github.com/isboyjc/blog/issues)
+- [文章源地址-GitHubIssues](https://github.com/isboyjc/blog/issues)
 
 - [文章静态站-GitHubPages](https://isboyjc.top/blog)
 
