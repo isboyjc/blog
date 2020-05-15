@@ -1,10 +1,15 @@
 # blog
 
-你好，我是 isboyjc，欢迎大家关注微信公众号「不正经的前端」也可以加入交流群
-[文章地址](https://github.com/isboyjc/blog/issues)
-[文章静态站](https://isboyjc.top/blog)
-[掘金传送门](https://juejin.im/user/5cdc302f6fb9a032155705c4/posts)
-[简书传送门](https://www.jianshu.com/u/fe7819267ca1)
+你好，我是「句末」一般博客都是叫「isboyjc」，一名喜欢写博客分享的前端，欢迎大家关注我的微信公众号「不正经的前端」也可以加入交流群
+- [文章地址-GitHubIssues](https://github.com/isboyjc/blog/issues)
+
+- [文章静态站-GitHubPages](https://isboyjc.top/blog)
+
+- [掘金传送门-推荐](https://juejin.im/user/5cdc302f6fb9a032155705c4/posts)
+
+- [简书传送门](https://www.jianshu.com/u/fe7819267ca1)
+
+- [思否传送门(segmentfault)](https://segmentfault.com/u/isboyjc)
 
 #### 硬核 JS 系列
 
