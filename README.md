@@ -18,7 +18,7 @@
 
 - [「硬核 JS」深入了解异步解决方案](https://github.com/isboyjc/blog/issues/7)
 
-- 「硬核 JS」你不知道的作用域 -- 更新中。。。
+- [「硬核 JS」你不知道的作用域 - 更新中](https://github.com/isboyjc/blog/issues/17)
 
 #### 一道面试题系列
 
@@ -30,7 +30,7 @@
 
 - [「一道面试题」输入 URL 到渲染全面梳理下-总结篇](https://github.com/isboyjc/blog/issues/16)
 
-- 更新中。。。
+- 待续。。。
 
 #### Vue 实战
 
@@ -38,7 +38,7 @@
 
 #### Vue 源码系列
 
-- 更新中。。。
+- 待续。。。
 
 #### 其他
 
