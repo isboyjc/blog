@@ -1,6 +1,7 @@
 ---
 title: Vue打包后index.html中无引号
 tags: [Vue, Bug]
+categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
 banner_img: /blog/img/banner/b046.jpg
 date: 2018-08-26 21:20:00

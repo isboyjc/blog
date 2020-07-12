@@ -1,6 +1,6 @@
 ---
 title: 「一道面试题」输入URL到渲染全面梳理下-总结篇
-tags: [面试]
+tags: [面试, 网络, 浏览器]
 categories: 一道面试题
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/003498579834534-1.jpg
 banner_img: /blog/img/banner/b027.jpg

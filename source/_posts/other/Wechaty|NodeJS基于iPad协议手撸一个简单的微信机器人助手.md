@@ -1,7 +1,7 @@
 ---
 title: Wechaty|NodeJS基于iPad协议手撸一个简单的微信机器人助手
-tags: [Wechaty, NodeJS, Wechat]
-categories: 安利系列
+tags: [Wechaty, NodeJS, 微信机器人]
+categories: Web相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/wechaty.png
 banner_img: /blog/img/banner/b041.jpg
 date: 2020-03-01 08:30:00

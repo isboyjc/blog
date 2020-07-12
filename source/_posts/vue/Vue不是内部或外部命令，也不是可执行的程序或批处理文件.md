@@ -1,6 +1,7 @@
 ---
 title: Vue不是内部或外部命令，也不是可执行的程序或批处理文件
 tags: [Vue, Bug]
+categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
 banner_img: /blog/img/banner/b048.jpg
 date: 2018-09-09 21:30:00
