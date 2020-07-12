@@ -36,22 +36,18 @@
 
 - [Vue 项目中优雅使用 icon](https://github.com/isboyjc/blog/issues/12)
 
-#### Vue 源码
-
-- 待续。。。
-
-#### Web 基础
-
-- [你真的了解跨域吗](https://github.com/isboyjc/blog/issues/18)
-
 - 待续。。。
 
 #### 其他
-
-- [Wechaty|NodeJS 基于 iPad 协议手撸一个简单的微信机器人助手](https://github.com/isboyjc/blog/issues/4)
 
 - [一个前端的安利](https://github.com/isboyjc/blog/issues/2)
 
 - [GitHub 免费搭建个人网站](https://github.com/isboyjc/blog/issues/3)
 
 - [function 与感叹号](https://github.com/isboyjc/blog/issues/11)
+
+- [Wechaty|NodeJS 基于 iPad 协议手撸一个简单的微信机器人助手](https://github.com/isboyjc/blog/issues/4)
+
+- [你真的了解跨域吗](https://github.com/isboyjc/blog/issues/18)
+
+- 待续。。。
