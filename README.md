@@ -50,6 +50,6 @@
 
 - [Wechaty|NodeJS 基于 iPad 协议手撸一个简单的微信机器人助手](https://github.com/isboyjc/blog/issues/4)
 
-- [wechaty plugin|实现一个微信机器人几行代码即可](https://github.com/isboyjc/blog/issues/19)
+- [Wechaty Plugin|实现一个微信机器人几行代码即可](https://github.com/isboyjc/blog/issues/19)
 
 - 待续。。。
