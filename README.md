@@ -38,16 +38,18 @@
 
 - 待续。。。
 
-#### 其他
-
-- [一个前端的安利](https://github.com/isboyjc/blog/issues/2)
-
-- [GitHub 免费搭建个人网站](https://github.com/isboyjc/blog/issues/3)
+#### Web相关
 
 - [function 与感叹号](https://github.com/isboyjc/blog/issues/11)
 
-- [Wechaty|NodeJS 基于 iPad 协议手撸一个简单的微信机器人助手](https://github.com/isboyjc/blog/issues/4)
+- [GitHub 免费搭建个人网站](https://github.com/isboyjc/blog/issues/3)
+
+- [一个前端的安利](https://github.com/isboyjc/blog/issues/2)
 
 - [你真的了解跨域吗](https://github.com/isboyjc/blog/issues/18)
+
+- [Wechaty|NodeJS 基于 iPad 协议手撸一个简单的微信机器人助手](https://github.com/isboyjc/blog/issues/4)
+
+- [wechaty plugin|实现一个微信机器人几行代码即可](https://github.com/isboyjc/blog/issues/19)
 
 - 待续。。。
