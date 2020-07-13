@@ -1,10 +1,10 @@
 ---
-title: Wechaty|NodeJS基于iPad协议手撸一个简单的微信机器人助手
+title: Wechaty Plugin|实现一个微信机器人几行代码即可
 tags: [Wechaty, NodeJS, 微信机器人]
 categories: Web相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/wechaty.png
 banner_img: /blog/img/banner/b034.jpg
-date: 2020-07-11 08:30:00
+date: 2020-07-14 00:30:00
 ---
 
 # Wechaty Plugin|实现一个微信机器人几行代码即可
