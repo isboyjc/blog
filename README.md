@@ -53,3 +53,7 @@
 - [Wechaty Plugin|实现一个微信机器人几行代码即可](https://github.com/isboyjc/blog/issues/19)
 
 - 待续。。。
+
+#### 其他
+
+- [努力、奋斗，写给自己、讲给你听](https://github.com/isboyjc/blog/issues/21)
