@@ -58,6 +58,8 @@
 
 - [让GIS三维可视化变得简单-初识Cesium](https://github.com/isboyjc/blog/issues/22)
 
+- [让GIS三维可视化变得简单-Vue项目中集成Cesium](https://github.com/isboyjc/blog/issues/23)
+
 #### 其他
 
 - [努力、奋斗，写给自己、讲给你听](https://github.com/isboyjc/blog/issues/21)
