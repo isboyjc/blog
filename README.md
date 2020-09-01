@@ -38,7 +38,7 @@
 
 - 待续。。。
 
-#### Web相关
+#### Web 相关
 
 - [function 与感叹号](https://github.com/isboyjc/blog/issues/11)
 
@@ -56,9 +56,11 @@
 
 #### Cesium 系列
 
-- [让GIS三维可视化变得简单-初识Cesium](https://github.com/isboyjc/blog/issues/22)
+- [让 GIS 三维可视化变得简单-初识 Cesium](https://github.com/isboyjc/blog/issues/22)
 
-- [让GIS三维可视化变得简单-Vue项目中集成Cesium](https://github.com/isboyjc/blog/issues/23)
+- [让 GIS 三维可视化变得简单-Vue 项目中集成 Cesium](https://github.com/isboyjc/blog/issues/23)
+
+- [让 GIS 三维可视化变得简单-Cesium 地球初始化](https://github.com/isboyjc/blog/issues/24)
 
 #### 其他
 
