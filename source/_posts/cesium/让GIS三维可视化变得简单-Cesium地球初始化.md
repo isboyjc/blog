@@ -1,4 +1,13 @@
-# 让GIS三维可视化变得简单-Cesium地球初始化 | 🏆 技术专题第三期征文 ......
+---
+title: 让GIS三维可视化变得简单-Cesium地球初始化
+tags: [Cesium, 数据可视化, WebGIS]
+categories: Cesium系列
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200715235121472.png
+banner_img: /blog/img/banner/b021.jpg
+date: 2020-08-31 14:00:00
+---
+
+# 让GIS三维可视化变得简单-Cesium地球初始化
 
 ## 前言
 
@@ -370,20 +379,20 @@ imagery.brightness = 0.9
 - [让GIS三维可视化变得简单-Vue项目中集成Cesium](https://juejin.im/post/6854899697661394951) 
 
 - [让GIS三维可视化变得简单-Cesium地球初始化]() 
-- 待续 - 让GIS三维可视化变得简单-Cesium坐标转换
-- 待续 - 让GIS三维可视化变得简单-Cesium球体自转
+- 暂定 - 让GIS三维可视化变得简单-Cesium坐标转换
+- 暂定 - 让GIS三维可视化变得简单-Cesium球体自转
 
-- 待续 - 让GIS三维可视化变得简单-Cesium实体Entity及事件
+- 暂定 - 让GIS三维可视化变得简单-Cesium实体Entity及事件
 
-- 待续 - 让GIS三维可视化变得简单-Cesium模型数据之3DTiles
-- 待续 - 让GIS三维可视化变得简单-Cesium模型数据之gltf
-- 待续 - 让GIS三维可视化变得简单-Cesium模型数据之geojson
-- 待续 - 让GIS三维可视化变得简单-Cesium模型数据之czml
-- 待续 - 让GIS三维可视化变得简单-Cesium流动线绘制
-- 待续 - 让GIS三维可视化变得简单-Cesium气泡弹窗
-- 待续 - 让GIS三维可视化变得简单-Cesium粒子系统(火灾、雪花、喷水)
-- 待续 - 让GIS三维可视化变得简单-Cesium鹰眼图
-- 待续 - 让GIS三维可视化变得简单-Cesium结合Echarts
+- 暂定 - 让GIS三维可视化变得简单-Cesium模型数据之3DTiles
+- 暂定 - 让GIS三维可视化变得简单-Cesium模型数据之gltf
+- 暂定 - 让GIS三维可视化变得简单-Cesium模型数据之geojson
+- 暂定 - 让GIS三维可视化变得简单-Cesium模型数据之czml
+- 暂定 - 让GIS三维可视化变得简单-Cesium流动线绘制
+- 暂定让GIS三维可视化变得简单-Cesium气泡弹窗
+- 暂定 - 让GIS三维可视化变得简单-Cesium粒子系统(火灾、雪花、喷水)
+- 暂定 - 让GIS三维可视化变得简单-Cesium鹰眼图
+- 暂定 - 让GIS三维可视化变得简单-Cesium结合Echarts
 
 Cesium国内教程很少，文档也是英文的，不太好入手，所以此系列只是简单入门以及一些效果制作（说白了就是介绍一些简单使用和一些好玩的例子），每一篇介绍一个点，挺难涉及到Cesium核心原理，因为我也在学习中，看后期个人学习情况，我是觉得什么好玩就想学。。。
 
@@ -396,5 +405,3 @@ Cesium国内教程很少，文档也是英文的，不太好入手，所以此�
 原创不易，看完点赞、养成习惯，此文收录在 GitHub，更多精彩请看 👉 [isboyjc/blog/issues](https://github.com/isboyjc/blog/issues) 
 
 如有错误请指出，互相学习，先行谢过，一个前端的 `Cesium` 学习过程的积累分享，自知深度不够，不喜勿喷
-
- [🏆 技术专题第三期 | 数据可视化的那些事......](https://juejin.im/post/6864072407461101582)

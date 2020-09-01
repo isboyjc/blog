@@ -1,3 +1,12 @@
+---
+title: 让GIS三维可视化变得简单-Vue项目中集成Cesium
+tags: [Cesium, 数据可视化, WebGIS]
+categories: Cesium系列
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200715235121472.png
+banner_img: /blog/img/banner/b023.jpg
+date: 2020-07-29 10:15:00
+---
+
 # 让GIS三维可视化变得简单-Vue项目中集成Cesium
 
 ## 前言
