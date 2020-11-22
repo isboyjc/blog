@@ -230,7 +230,9 @@ viewer.cesiumWidget.creditContainer.style.display = "none"
 
 
 
-#### 加载天地图影像
+#### 加载影像示例
+
+##### 加载天地图影像
 
 按照上述所说，首先我们要加载影像图层的数据源，Cesium地球默认加载的是 `bing` 地图影像，所以我们要先从容器中删除这个默认影像
 
@@ -275,7 +277,7 @@ let imagery = viewer.imageryLayers.addImageryProvider(tianditu)
 
 
 
-#### 加载谷歌影像
+##### 加载谷歌影像
 
 上面步骤已经知悉，我们就不一一叙说了，下面直接看代码就好
 
@@ -295,7 +297,7 @@ let imagery = viewer.imageryLayers.addImageryProvider(
 
 
 
-#### 加载ArcGIS影像
+##### 加载ArcGIS影像
 
 ```js
 viewer.imageryLayers.remove(viewer.imageryLayers.get(0))
@@ -313,7 +315,7 @@ ArcGIS影像预览如下
 
 
 
-#### 加载高德影像
+##### 加载高德影像
 
 ```js
 viewer.imageryLayers.remove(viewer.imageryLayers.get(0))
@@ -334,7 +336,7 @@ let imagery = viewer.imageryLayers.addImageryProvider(
 
 
 
-#### 加载天地图标注
+##### 加载天地图标注
 
 上述影像的加载，可以看到，地图上是没有标注的，我们需要额外加载标柱，同样的，它也是图层
 
@@ -360,7 +362,7 @@ let label = viewer.imageryLayers.addImageryProvider(
 
 
 
-#### 影像亮度调整
+##### 影像亮度调整
 
 我们加载影像拿到影像实例 `imagery` 后，可以通过其 `brightness` 属性调节亮度，取值 `0～1` ，默认为1
 
@@ -370,9 +372,27 @@ imagery.brightness = 0.9
 
 
 
-## 后续
+#### 影像小结
 
-这次就到这了，其实不止是做Cesium开发的人群，做前端的同学学一学这些还是有些用处的，可以为你的页面或项目增色不少，后续内容请看暂定目录
+上文中我们列举的 `ImageryProvider` 类支持的子类非常多，而上面的示例中
+
+在加载高德影像服务时，我们使用的指定 `url` 的 `format` 模版来实现自己的 `Provider`，所以使用了 `UrlTemplateImageryProvider` 类来加载数据源
+
+在加载 `ArcGIS` 影像用到了 `ArcGIS Server` 的相关服务所以使用了 `ArcGisMapServerImageryProvider` 类来加载数据源
+
+在加载标柱影像时，因为我们加载的是一个Web Map Tile Service也就是 `WMTS` 服务，所以我们使用的是 `WebMapTileServiceImageryProvider` 类
+
+这几个简单的小例子是为了告诉我们我们使用什么样的数据源，就使用对应的 `ImageryProvider` 来加载即可
+
+影像加载这块由于本文重点描述的是初始化，所以只有怎样加载，并没有对应的数据服务相关知识，Get一个新的技能，首先是用起来，下一个阶段是扣一些细节然后用熟它，再接着是扩展，最后是学其原理，后续通过一些使用再来慢慢扩展概念性的东西
+
+
+
+## 最后
+
+回顾本文，Cesium实例初始化，围绕着加载一个干净的三维地球实例展开，文中我们主要介绍了 Cesium 控件的现实隐藏以及影像的加载，一般来说为了界面美化，我们都是自己写控件或者直接隐藏掉，当然如果 Cesium 的初始化控件中恰巧有你需要的，但是又觉得默认的空间样式不太好看，其实我们是可以自己改样式的，因为控件只是普通元素节点，完全可以直接在控制台中选中元素，通过类名来修改对应控件的样式来达到自己想要的效果，相信这对于一个前端来说不是什么难事
+
+到此其实就只做了加载出来地球和加载下影像，对于 Cesium 来说它仅仅一个开始，更多好玩的还在后面，其实不止是做Cesium开发的人群，做前端的同学学一学这些还是有些用处的，可以为你的页面或项目增色不少，后续内容请看暂定目录
 
 - [让GIS三维可视化变得简单-初识Cesium](https://juejin.im/post/6854573221191090189) 
 
@@ -389,7 +409,7 @@ imagery.brightness = 0.9
 - 暂定 - 让GIS三维可视化变得简单-Cesium模型数据之geojson
 - 暂定 - 让GIS三维可视化变得简单-Cesium模型数据之czml
 - 暂定 - 让GIS三维可视化变得简单-Cesium流动线绘制
-- 暂定让GIS三维可视化变得简单-Cesium气泡弹窗
+- 暂定 - 让GIS三维可视化变得简单-Cesium气泡弹窗
 - 暂定 - 让GIS三维可视化变得简单-Cesium粒子系统(火灾、雪花、喷水)
 - 暂定 - 让GIS三维可视化变得简单-Cesium鹰眼图
 - 暂定 - 让GIS三维可视化变得简单-Cesium结合Echarts
