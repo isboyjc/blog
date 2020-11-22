@@ -18,6 +18,8 @@
 
 - [「硬核 JS」深入了解异步解决方案](https://github.com/isboyjc/blog/issues/7)
 
+- [「硬核 JS」数字之美](https://github.com/isboyjc/blog/issues/25)
+
 - [「硬核 JS」你不知道的作用域 - 更新中](https://github.com/isboyjc/blog/issues/17)
 
 #### 一道面试题系列
