@@ -3,7 +3,7 @@ title: 「Vue源码系列No.2」调试环境搭建 - U
 tags: [Vue, 源码]
 categories: Vue源码系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue03.png
-banner_img: /blog/img/banner/b031.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b031.jpg
 date: 2019-11-25 19:00:00
 ---
 

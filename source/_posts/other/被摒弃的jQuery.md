@@ -3,7 +3,7 @@ title: 被摒弃的jQuery
 tags: [jQuery]
 categories: Web相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/jq01.png
-banner_img: /blog/img/banner/b039.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b039.jpg
 date: 2018-09-26 19:40:00
 ---
 

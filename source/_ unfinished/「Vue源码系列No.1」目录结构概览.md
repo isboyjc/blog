@@ -3,7 +3,7 @@ title: 「Vue源码系列No.1」目录结构概览 - U
 tags: [Vue, 源码]
 categories: Vue源码系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue03.png
-banner_img: /blog/img/banner/b030.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b030.jpg
 date: 2019-10-15 19:00:00
 ---
 

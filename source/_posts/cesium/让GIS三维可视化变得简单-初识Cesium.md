@@ -3,7 +3,7 @@ title: 让GIS三维可视化变得简单-初识Cesium
 tags: [Cesium, 数据可视化,WebGIS]
 categories: Cesium系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200715235121472.png
-banner_img: /blog/img/banner/b024.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b024.jpg
 date: 2020-07-27 01:15:00
 ---
 

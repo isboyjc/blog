@@ -3,7 +3,7 @@ title: Vue 基础面试题
 tags: [Vue, 面试]
 categories: 面试
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
-banner_img: /blog/img/banner/b033.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b033.jpg
 date: 2019-06-10 19:00:00
 ---
 

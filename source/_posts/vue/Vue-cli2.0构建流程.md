@@ -3,7 +3,7 @@ title: Vue-cli2.0构建流程
 tags: [Vue]
 categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
-banner_img: /blog/img/banner/b036.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b036.jpg
 date: 2018-10-12 21:30:00
 ---
 

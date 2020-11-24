@@ -118,7 +118,7 @@ scroll_top_arrow: # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: /blog/img/banner/b016.jpg # 首页 Banner 头图，以下相同
+  banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b016.jpg # 首页 Banner 头图，以下相同
   banner_img_height: 100 # 头图高度，屏幕百分比，available: 0 - 100
   slogan: # 首页副标题的独立设置
     enable: true # 为 false 则不显示任何内容
@@ -136,7 +136,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /blog/img/banner/b006.jpg
+  banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b006.jpg
   banner_img_height: 70 # available: 0 - 100
   meta: # 文章标题下方的信息
     date: # 文章日期
@@ -249,7 +249,7 @@ livere:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /blog/img/banner/b026.jpg
+  banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b026.jpg
   banner_img_height: 80 # available: 0 - 100
 
 #---------------------------
@@ -257,7 +257,7 @@ archive:
 # Categories Page
 #---------------------------
 category:
-  banner_img: /blog/img/banner/b023.jpg
+  banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b023.jpg
   banner_img_height: 80 # available: 0 - 100
 
 #---------------------------
@@ -265,7 +265,7 @@ category:
 # Tags Page
 #---------------------------
 tag:
-  banner_img: /blog/img/banner/b005.jpg
+  banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b005.jpg
   banner_img_height: 80 # available: 0 - 100
   tagcloud: # 标签云
     min_font: 15
@@ -280,7 +280,7 @@ tag:
 #---------------------------
 about: # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   md_path: ./pages/about.md # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
-  banner_img: /blog/img/banner/b002.jpg
+  banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b002.jpg
   banner_img_height: 80 # available: 0 - 100
   avatar: /img/avatar.jpeg # 头像
   name: 李建超

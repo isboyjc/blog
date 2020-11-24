@@ -2,7 +2,7 @@
 title: function与感叹号
 tags: [JavaScript]
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
-banner_img: /blog/img/banner/b035.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b035.jpg
 date: 2018-06-25 20:30:00
 ---
 

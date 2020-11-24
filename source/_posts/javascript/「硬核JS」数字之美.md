@@ -3,7 +3,7 @@ title: 「硬核JS」数字之美
 tags: [JavaScript]
 categories: 硬核JS系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
-banner_img: /blog/img/banner/b036.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b036.jpg
 date: 2020-11-22 22:00:00
 ---
 
@@ -94,11 +94,11 @@ date: 2020-11-22 22:00:00
 
 ```js
 5 % 2 // 商  2 余 1
-2 % 2 // 商  1 余 1
+2 % 2 // 商  1 余 0
 1 % 2 // 商  0 余 1
 ```
 
-那么 5 的二进制即 `111`，再来看小数部分
+那么 5 的二进制即 `101`，再来看小数部分
 
 ```js
 0.125 * 2 = 0.250 // 取整数 0
@@ -106,7 +106,7 @@ date: 2020-11-22 22:00:00
 0.5   * 2 = 1			// 取整数 1 并结束
 ```
 
-那么小数部分 `0.125` 的二进制即 `001`，拼接可得出十进制数字 `5.125` 的二进制为 `111.001` 
+那么小数部分 `0.125` 的二进制即 `001`，拼接可得出十进制数字 `5.125` 的二进制为 `101.001` 
 
 
 

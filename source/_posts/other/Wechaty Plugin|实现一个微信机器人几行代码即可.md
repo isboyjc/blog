@@ -3,7 +3,7 @@ title: Wechaty Plugin|实现一个微信机器人几行代码即可
 tags: [Wechaty, NodeJS, 微信机器人]
 categories: Web相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/wechaty.png
-banner_img: /blog/img/banner/b034.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b034.jpg
 date: 2020-07-14 00:30:00
 ---
 

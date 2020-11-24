@@ -3,7 +3,7 @@ title: 「硬核JS」深入了解异步解决方案
 tags: [JavaScript]
 categories: 硬核JS系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
-banner_img: /blog/img/banner/b037.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b037.jpg
 date: 2020-02-14 14:00:00
 ---
 

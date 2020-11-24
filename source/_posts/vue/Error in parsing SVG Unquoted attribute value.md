@@ -3,7 +3,7 @@ title: Vue中npm run build报“Error in parsing SVG Unquoted attribute value”
 tags: [Vue, Bug]
 categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
-banner_img: /blog/img/banner/b045.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b045.jpg
 date: 2018-09-11 21:30:00
 ---
 

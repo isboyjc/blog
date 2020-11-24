@@ -3,7 +3,7 @@ title: 「硬核 JS」一次搞懂 JS 运行机制
 tags: [JavaScript]
 categories: 硬核JS系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
-banner_img: /blog/img/banner/b040.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b040.jpg
 date: 2020-01-18 22:10:00
 ---
 

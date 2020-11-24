@@ -3,7 +3,7 @@ title: GitHub 免费搭建个人网站
 tags: [GitHub, 建站]
 categories: Web相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/github01.jpg
-banner_img: /blog/img/banner/b042.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b042.jpg
 date: 2018-09-06 23:30:00
 ---
 
