@@ -72,3 +72,8 @@
 #### 其他
 
 - [努力、奋斗，写给自己、讲给你听](https://github.com/isboyjc/blog/issues/21)
+
+
+
+
+![](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/20201226182304.png)
