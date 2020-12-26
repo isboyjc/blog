@@ -33,9 +33,9 @@ date: 2020-12-01 08:00:00
 
 看此文之前，请一定要先阅读这篇文章 
 
-- [「硬核JS」数字之美]() 
-- [「硬核JS」数字之美]() 
-- [「硬核JS」数字之美]() 
+- [「硬核JS」数字之美](https://github.com/isboyjc/blog/issues/25) 
+- [「硬核JS」数字之美](https://github.com/isboyjc/blog/issues/25) 
+- [「硬核JS」数字之美](https://github.com/isboyjc/blog/issues/25) 
 
 重要的事情说三遍，上面这篇文章就是给此文做准备的，文中讲了一些数字相关的东西，二进制转换、原码、反码、补码以及 JS 中的数字存储等等，看完上文再看此文会很 easy
 
