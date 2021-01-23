@@ -27,6 +27,9 @@
 #### 算法与数据结构
 
 - [「算法与数据结构」时间与空间复杂度](https://github.com/isboyjc/blog/issues/28)
+
+- [「算法与数据结构」JavaScript中的链表](https://github.com/isboyjc/blog/issues/29)
+
 #### 一道面试题系列
 
 - [「一道面试题」小程序与 H5 的区别](https://github.com/isboyjc/blog/issues/13)
