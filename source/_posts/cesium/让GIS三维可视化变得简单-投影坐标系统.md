@@ -1,3 +1,12 @@
+---
+title: 让GIS三维可视化变得简单-投影坐标系统
+tags: [Cesium, 数据可视化,WebGIS]
+categories: Cesium系列
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200715235121472.png
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b098.jpg
+date: 2021-03-16 22:12:00
+---
+
 # 让GIS三维可视化变得简单-投影坐标系统
 
 接上文地理坐标系统，此文我们一起来了解下坐标系统中的投影坐标系统
@@ -111,7 +120,7 @@
 
 你可以想象一下一个椭圆柱横着套在（相切于经线圈）地球的椭球面上，围绕地轴旋转，将地球表面投影到椭圆柱面，投影到椭圆柱面后，再沿着椭圆柱面的高剪开摊成平面，如下图
 
-![image-20210214201134358](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210214201134358.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316215210555.png)
 
 经度有东西各180度，按3度或者6度剥开一瓣用于投影这个叫分带，旋转高斯克吕格的投影面，可以获取下一个分带的投影，以合适全球所有的地方，如下图
 
@@ -162,6 +171,8 @@ UTM 全称 `Universal Transverse Mercator` 中文叫做 通用横轴墨卡托投
 基于 `UTM投影` 的 PCS 族，和 `高斯克吕格投影` 坐标系统族类似，只不过仅基于WGS84，也是根据中央经线按需选用即可
 
 我国的高德、百度、腾讯地图，谷歌地图、OSM地图都用了网络墨卡托来平面化展示，不过国内高德百度腾讯和国内谷歌地图的地理坐标系统经过加密，而天地图虽然用的是国家 2000 地理坐标系，但是也提供了墨卡托投影方法来展示平面地图，`ArcGIS Earth` 则和 `Google Earth` 类似，都是直接使用3857坐标系
+
+码字不易，来个四连吧，感谢，欢迎关注公众号「不正经的前端」，获取更多内容！
 
 
 
