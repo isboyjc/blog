@@ -18,7 +18,7 @@
 
 能展开成平面的面有平面本身，球永远也展不开成一个平面，那么我们要把球搞成一个平面只有靠投影，而球的投影方式也有很多，我们后面会介绍到
 
-![](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210211021853325.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316212534150.png)
 
 
 
@@ -55,7 +55,7 @@
 
 如下图
 
-![](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210214014146651.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316212623599.png)
 
 按照投影的方式，可以分为下面几类
 
@@ -65,7 +65,7 @@
 
 像后面所说的高斯克吕格投影就是一种圆柱投影，如下图所示
 
-![](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210214014118415.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316213128233.png)
 
 那么按照投影面（圆柱、圆锥，平面）主轴与地轴（连接南北极的短轴）相对位置的关系，投影又可以分为下面几种方式
 
@@ -77,7 +77,7 @@
 
 如下图
 
-![](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210214020758729.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316213312759.png)
 
 
 
@@ -93,13 +93,13 @@
 
 简单说就是假设地球被套在一个圆柱中，赤道与圆柱相切，然后在地球中心放一盏灯，把球面上的图形投影到圆柱体上，再把圆柱体展开，就形成以一幅墨卡托投影的世界地图，如下图
 
-![image-20210211023120666](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210211023120666.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316213421776.png)
 
 由于可显示任两点间的正确方位，航海用途的海图、航路图大部分都这种方式绘制，这种投影中线型比例尺在图中任意一点周围都保持不变，从而可以保持大陆轮廓投影后的角度和形状不变（即等角），但墨卡托投影会使面积产生变形，极点（也就是南北极地区）的比例甚至达到了无穷大
 
 所以它并没完整展现了整个世界，地图上最高纬度是85.05度，为了简化计算，采用球形映射，而不是椭球体形状，采用墨卡托投影只是为了方便展示地图，我们还需要知道的是，这种映射会给Y轴方向带来 0.33% 的误差，如下图
 
-![](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210211023823332.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316213524116.png)
 
 
 
@@ -115,7 +115,7 @@
 
 经度有东西各180度，按3度或者6度剥开一瓣用于投影这个叫分带，旋转高斯克吕格的投影面，可以获取下一个分带的投影，以合适全球所有的地方，如下图
 
-![](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/clip_image002_2.gif)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316213637538.png)
 
 `高斯克吕格投影` 又名 `等角横切椭圆柱投影`，在英美国家称为 `横轴墨卡托投影`，美国编制世界各地军用地图和地球资源卫星象片所采用的 `全球/通用 横轴墨卡托投影（UTM）` 是 `横轴墨卡托投影` 的一种变形
 
@@ -129,7 +129,7 @@
 
 UTM 全称 `Universal Transverse Mercator` 中文叫做 通用横轴墨卡托投影，和高斯克吕格投影非常相似，只不过它并不是切于经线圈，而是为椭圆柱横正轴割地球椭球体（穿地球而过），椭圆柱的中心线位于椭球体赤道面上，且通过椭球体质点，从而将椭球体上的点投影到椭圆柱上，就像下面这个样子
 
-![image-20210214202426798](https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/image-20210214202426798.png)
+![](https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20210316213739070.png)
 
 这种投影是美国陆军工程兵测绘局于20世纪40年代提出的，美国本土采用Clarke 1866椭球体，对全球其它地方采用 WGS84 椭球体，目前大部分的遥感影像图用的就是 UTM 投影出来的投影坐标系统
 

@@ -72,6 +72,8 @@
 
 - [让GIS三维可视化变得简单-地理坐标系统](https://github.com/isboyjc/blog/issues/30)
 
+- [让GIS三维可视化变得简单-投影坐标系统](https://github.com/isboyjc/blog/issues/31)
+
 - 待续。。。
 
 #### 其他
