@@ -1,3 +1,14 @@
+---
+title: 「硬核JS」你真的了解垃圾回收机制吗
+tags: [JavaScript, 垃圾回收, GC]
+categories: 硬核JS系列
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
+banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b047.jpg
+date: 2021-07-06 10:00:00
+---
+
+<!-- more -->
+
 # 「硬核JS」你真的了解垃圾回收机制吗
 
 ## 写在前面
