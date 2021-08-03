@@ -3,11 +3,9 @@ title: Vue不是内部或外部命令，也不是可执行的程序或批处理�
 tags: [Vue, Bug]
 categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b048.jpg
 date: 2018-09-09 21:30:00
 ---
 
-# vue 不是内部或外部命令，也不是可执行的程序或批处理文件
 
 平常我们搭个脚手架，可能分分钟就完事了，但是容易忽略一些细节，比如搭脚手架时 cmd 查 vue 版本号报`vue不是内部或外部命令，也不是可执行的程序或批处理文件`这种错误，明明 vue 下载了，脚手架下载完了怎么也初始化不了，你遇到过吗？
 

@@ -3,11 +3,9 @@ title: GitHub 免费搭建个人网站
 tags: [GitHub, 建站]
 categories: Web相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/github01.jpg
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b042.jpg
 date: 2018-09-06 23:30:00
 ---
 
-# GitHub 免费搭建个人网站
 
 学习前端的人应该知道，开始学习前端时，心里想的肯定是我一定要给自己做一个的非常棒的网站，学完之后网站做好了，但是要怎么上线呢？？？
 

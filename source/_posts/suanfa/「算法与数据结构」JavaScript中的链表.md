@@ -3,11 +3,9 @@ title: 「算法与数据结构」JavaScript中的链表
 tags: [JavaScript, 算法, 数据结构, LeetCode, 刷题]
 categories: 算法与数据结构
 index_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/other/suanfa1.jpg
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b095.jpg
 date: 2021-01-25 08:00:00
 ---
 
-# 「算法与数据结构」JavaScript中的链表
 
 ## 写在前面
 

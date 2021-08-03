@@ -1,7 +1,0 @@
-.idea/
-.DS_Store
-*.log
-*.iml
-yarn.lock
-package-lock.json
-node_modules/

@@ -3,11 +3,9 @@ title: Vue-cli2.0构建流程
 tags: [Vue]
 categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b036.jpg
 date: 2018-10-12 21:30:00
 ---
 
-# Vue-cli 构建流程
 
 学习 vue 时，总觉得 vue-cli 搭建很复杂，其实也不过如此，使用别人搭建好的包在打包时总会报一些莫名其妙的错误，还是自己动手比较可靠，就像我总觉得我自己写的代码是最好的\^\_^
 

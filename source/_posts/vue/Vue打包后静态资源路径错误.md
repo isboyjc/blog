@@ -3,11 +3,9 @@ title: Vue打包后静态资源路径错误
 tags: [Vue, Bug]
 categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b047.jpg
 date: 2018-09-01 21:20:00
 ---
 
-# Vue 打包后静态资源路径错误
 
 vue 项目打包完了，dist 文件也生成了，运行一下，又报错了
 

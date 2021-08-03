@@ -3,11 +3,9 @@ title: 让GIS三维可视化变得简单-投影坐标系统
 tags: [Cesium, 数据可视化,WebGIS]
 categories: Cesium系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200715235121472.png
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b098.jpg
 date: 2021-03-16 22:12:00
 ---
 
-# 让GIS三维可视化变得简单-投影坐标系统
 
 接上文地理坐标系统，此文我们一起来了解下坐标系统中的投影坐标系统
 

@@ -3,12 +3,8 @@ title: 让GIS三维可视化变得简单-地理坐标系统
 tags: [Cesium, 数据可视化,WebGIS]
 categories: Cesium系列
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/image-20200715235121472.png
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b096.jpg
 date: 2021-02-18 20:15:00
 ---
-
-# 让GIS三维可视化变得简单-地理坐标系统
-
 
 
 ## 写在前面

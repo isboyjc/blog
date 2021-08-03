@@ -4,19 +4,19 @@
 
 # Site
 title: ISBOYJC
-subtitle: ""
-description: ""
-keywords: 李建超,isboyjc,句末
+subtitle: ''
+description: ''
+keywords: 李建超,isboyjc,句末,不正经的前端
 author: isboyjc
 language: zh-CN
-timezone: ""
+timezone: ''
 
 # URL
 ## 如果您的站点位于子目录中，请将url设置为“http://your site.com/child”，将root设置为“/child/”
 url: https://isboyjc.com/blog
 root: /blog/
 permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink_defaults: 
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -37,27 +37,32 @@ default_layout: post
 titlecase: false # 标题首字母转大写
 external_link:
   enable: true # 在新选项卡中打开外部链接
-  field: site # site 适用于整个网站
-  exclude: ""
+  field: site  # site 适用于整个网站
+  exclude: ''
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: false
+  enable: true
   line_number: true
   auto_detect: false
-  tab_replace: ""
+  tab_replace: ''
   wrap: true
   hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
 
 # Home page setting 主页设置
 # path：您的博客索引页面的根路径。 （默认=''）
 # per_page：每页显示的帖子。 （0 =禁用分页）
 # order_by：发布订单。 （默认按日期降序排列）
 index_generator:
-  path: ""
+  path: ''
   per_page: 10
   order_by: -date
 
@@ -76,8 +81,8 @@ meta_generator: true
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -93,9 +98,10 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+## fluid landscape
 theme: fluid
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ""
+  type: ''
