@@ -12,6 +12,10 @@
 
 - MVVM模式在前端领域有广泛应用，它不仅解决MV耦合问题，还同时解决了维护两者映射关系的大量繁杂代码和DOM操作代码，在提高开发效率、可读性同时还保持了优越的性能表现
 
+MVVM是`Model-View-ViewModel`缩写，也就是把`MVC`中的`Controller`演变成`ViewModel`。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据
+
+
+
 
 
 #### v-show 与 v-if 有什么区别？
@@ -222,17 +226,25 @@ v-model在使用的时候很像双向绑定的（实际上也是。。。），�
 
 #### Vue中的diff？
 
-diff算法是虚拟DOM技术的必然产物：通过新旧虚拟DOM作对比（即diff），将变化的地方更新在真实DOM上；另外，也需要diff高效的执行对比过程，从而降低时间复杂度为O(n)。
+**回答步骤一：什么是diff/为什么需要diff？**
 
-vue 2.x中为了降低Watcher粒度，每个组件只有一个Watcher与之对应，只有引入diff才能精确找到发生变化的地方。
+vue 1.x中每一个属性会创建一个Dep，组件模板中每个动态属性都会创建一个Watcher，同一个动态属性交由属性的Dep管理，属性值更新会通过Dep通知所有Watcher达到更新目的，但是这样的话每一个组件都创建了大量watcher实例，消耗太大
+
+vue 2.x中为了降低Watcher粒度，每个组件只有一个Watcher与之对应，由于每个组件只有一个watcher实例，组件中多个属性的更新只有引入虚拟DOM做新老之间的精准对比才行，而 diff 算法就是为了精确找到发生变化的地方
+
+Diff 就是通过高效的算法对比组件新旧虚拟DOM，将变化的地方更新在真实DOM上，diff的时间复杂度为O(n)。
+
+
+
+**回答步骤二：vue中的diff介绍**？
 
 vue中diff执行的时刻是组件实例执行其更新函数时，它会比对上一次渲染结果oldVnode和新的渲染结果newVnode，**此过程称为patch**。
 
-diff过程整体遵循深度优先、同层比较的策略；两个节点之间比较会根据它们是否拥有子节点或者文本节点做不同操作；比较两组子节点是算法的重点，首先假设头尾节点可能相同做4次比对尝试，如果没有找到相同节点才按照通用方式遍历查找，查找结束再按情况处理剩下的节点；借助 key 通常可以非常精确找到相同节点，因此整个 patch 过程非常高效。
+整个diff过程整体遵循深度优先、同层比较的策略；两个节点之间比较会根据它们是否拥有子节点或者文本节点做不同操作；比较两组子节点是算法的重点，首先假设头尾节点可能相同做4次比对尝试，如果没有找到相同节点才按照通用方式遍历查找，查找结束再按情况处理剩下的节点；借助 key 通常可以非常精确找到相同节点，因此整个 patch 过程非常高效。
 
 
 
-#### Vue中的patch算法？
+**回答步骤三：diff过程？**
 
 1. 调用patch函数比较Vnode和OldVnode,如果不一样直接return Vnode即将Vnode真实化后替换掉DOM中的节点
 
@@ -252,6 +264,16 @@ diff过程整体遵循深度优先、同层比较的策略；两个节点之间�
 
 
 
+Vue3.x借鉴了 [ivi](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Flocalvoid%2Fivi)算法和 [inferno](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Finfernojs%2Finferno)算法
+
+在创建VNode时就确定其类型，以及在`mount/patch`的过程中采用`位运算`来判断一个VNode的类型，在这个基础之上再配合核心的Diff算法，使得性能上较Vue2.x有了提升。(实际的实现可以结合Vue3.x源码看。)
+
+该算法中还运用了`动态规划`的思想求解最长递归子序列。
+
+
+
+
+
 #### Vue中v-model原理？
 
 `v-model`本质就是一个语法糖，可以看成是`value + input`方法的语法糖。 可以通过model属性的`prop`和`event`属性来进行自定义。原生的v-model，会根据标签的不同生成不同的事件和属性。
@@ -265,16 +287,6 @@ diff过程整体遵循深度优先、同层比较的策略；两个节点之间�
 数据劫持结合“**发布-订阅**”模式的方式，通过**Object.defineProperty（）的 set 和 get**，在数据变动时发布消息给订阅者触发监听
 
 每个组件实例都对应一个 **watcher** 实例，它会在组件渲染的过程中把“接触”过的数据关联记录为依赖。之后当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染
-
-
-
-#### Vue初始化流程？
-
-
-
-#### Vue更新流程？
-
-Vue 在更新 DOM 时是**异步**执行的。只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部对异步队列尝试使用原生的 `Promise.then`、`MutationObserver` 和 `setImmediate`，如果执行环境不支持，则会采用 `setTimeout(fn, 0)` 代替
 
 
 
@@ -294,11 +306,62 @@ Vue的数据是响应式的，但其实模板中并不是所有的数据都是�
 
 
 
+
+
+#### Vue初始化流程？
+
+Vue的初始化流程，是从 **new Vue()** 开始的，在 **new Vue()**后，会执行**init**方法
+
+- 初始化options中的各种属性，生命周期，事件，属性与状态，计算属性与watch，并实现数据的响应式
+
+如果使用template模板并处于运行时编译状态，那么会开始进入编译阶段
+
+- 编译阶段由parse, optimize, generate组成，分别用来解析模板语法并生成AST，标记静态节点以优化，将AST转化为render function string的过程，这样就准备完成了渲染VNode所需的render function
+
+最后使用 **$mount** 挂载
+
+- $mount 方法中调用 mountComponent 方法，其中创建了 updateComponent 方法
+- updateComponent中执行 `_render` 和 `_update` ，render拿到VDOM，update中会通过 `patch` 把VDOM转化为真实DOM
+
+在数据有变化时，会通过**set -> Watcher -> update** 来更新视图
+
+整个Vue的运行机制大致就是这样
+
+
+
+#### Vue更新流程/异步更新队列？
+
+**set -> Watcher -> update** 
+
+Vue 在更新 DOM 时是**异步**执行的。只要侦听到数据变化，Vue 将开启一个队列，将此次的更新watcher推入队列。如果同一个 watcher 被多次触发，只会被推入到队列中一次。因为在推入队列的过程中为了避免不必要的计算和 DOM 操作而对其做了去重操作
+
+然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部对异步队列尝试使用原生的 `Promise.then`、`MutationObserver` 和 `setImmediate`，如果执行环境不支持，则会采用 `setTimeout(fn, 0)` 代替
+
+
+
+
+
 #### Vue中nextTick的使用场景和原理？
 
 
 
 #### Vue中keep-alive的使用场景和原理？
+
+- 获取 keep-alive 包裹着的第一个子组件对象及其组件名
+
+- 根据设定的 include/exclude（如果有）进行条件匹配,决定是否缓存。不匹配,直接返回组件实例
+
+- 根据组件 ID 和 tag 生成缓存 Key,并在缓存对象中查找是否已缓存过该组件实例。如果存在,直接取出缓存值并更新该 key 在 this.keys 中的位置(**更新 key 的位置是实现 LRU 置换策略的关键**)
+
+- 在 this.cache 对象中存储该组件实例并保存 key 值,之后检查缓存的实例数量是否超过 max 的设置值,超过则根据 LRU 置换策略**删除最近最久未使用的实例**（即是下标为 0 的那个 key）
+
+- 最后组件实例的 keepAlive 属性设置为 true,这个在渲染和执行被包裹组件的钩子函数会用到,这里不细说
+
+**LRU 缓存淘汰算法**
+
+LRU（Least recently used）算法根据数据的历史访问记录来进行淘汰数据,其核心思想是“如果数据最近被访问过,那么将来被访问的几率也更高”。
+
+keep-alive 的实现正是用到了 LRU 策略,将最近访问的组件 push 到 this.keys 最后面,this.keys[0]也就是最久没被访问的组件,当缓存实例超过 max 设置值,删除 this.keys[0]
 
 
 
@@ -312,9 +375,15 @@ Vue的数据是响应式的，但其实模板中并不是所有的数据都是�
 
 #### Vue.extend作用和原理?
 
+Vue.extend
+
 
 
 #### Vue.set作用和原理?
+
+Vue.set其实就是用来动态添加响应式属性，一般用于在原来的响应式对象中添加一个新属性时，因为添加的新属性并没有经过响应式处理，使用Vue.set可为其做响应式处理
+
+其原理也很简单，源码内部调用的也是`defineReactive` 方法，通过 `Object.defineProperty` 的get、set对添加的对象新key值做劫持
 
 
 
@@ -605,6 +674,12 @@ key应该绑定你v-for循环数据中的唯一值，这样就会大大减少渲
 
 
 #### 什么是预渲染？和SSR区别是什么？
+
+服务端渲染是指将客户端渲染的过程放到了服务端，直接吐渲染后的页面（即用户看到的页面）给浏览器
+
+预渲染不像服务器渲染那样即时编译 HTML，它只在构建时为了特定的路由生成特定的几个静态页面，等于我们可以通过 Webpack 插件将一些特定页面组件 build 时就编译为 html 文件，直接以静态资源的形式输出给搜索引擎
+
+
 
 
 

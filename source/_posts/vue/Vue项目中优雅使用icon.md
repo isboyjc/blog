@@ -3,7 +3,6 @@ title: Vue 项目中优雅使用 icon
 tags: [Vue]
 categories: Vue相关
 index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
-banner_img: https://cdn.jsdelivr.net/gh/isboyjc/PictureBed/banner/b038.jpg
 date: 2019-11-16 18:00:00
 ---
 
