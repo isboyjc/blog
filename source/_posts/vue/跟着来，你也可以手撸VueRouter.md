@@ -2,7 +2,7 @@
 title: 跟着来，你也可以手写VueRouter
 tags: [Vue, VueRouter, 源码]
 categories: Vue相关
-index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/vue01.jpg
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/router.jpg
 date: 2021-08-02 18:00:00
 ---
 
