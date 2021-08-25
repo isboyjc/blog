@@ -1,6 +1,4 @@
-# 简单的Vue
-
-## 核心篇
+## Vue
 
 #### MVC、MVP和MVVM？
 
@@ -413,6 +411,12 @@ use方法接收一个类型为函数或对象的参数
 
 
 
+#### Vue中provide/inject原理？
+
+当祖先组件在初始化时，vue首先会通过mergeOptions方法将组件中 provide 配置项合并 vm.$options 中，并通过 mergeDataOrFn 将provide 的值放入当前实例的 `_provided` 中，此时当子孙组件在初始化时，也会通过合并的 options 解析出当前组件所定义的 inject，并通过往上逐级遍历查找的方式，在祖先实例的 `_provided` 中找到对应的 value 值
+
+
+
 #### Vuex理解和原理？
 
 Vuex 通过代码实现了一个单向数据流，在全局拥有一个 `State` 存放数据，当组件要更改 `State` 中的数据时，必须通过 `Mutation` 提交修改信息， `Mutation` 同时提供了订阅者模式供外部插件调用获取 `State` 数据的更新。
@@ -424,6 +428,18 @@ Vuex 通过代码实现了一个单向数据流，在全局拥有一个 `State` 
 - mutation ：更改 `state` 中唯一的方法是提交 `mutation`
 - action ： 类似 `mutation`，但它通过提交 `mutation` 修改状态，可异步操作
 - module ：当应用变得非常复杂是， `store` 就会变得相当臃肿。vuex 允许我们将 store分割成模块，每个模块拥有自己的 `state,mutation,action,getter` ，甚至是嵌套子模块从上至下进行同样方式分割
+
+
+
+#### Vuex把异步操作封装在action把同步操作放在mutations的原因？
+
+区分 actions 和 mutations 是为了能用 devtools 追踪状态变化。
+
+ vuex 里面 actions 只是一个架构性的概念，并不是必须的，说到底只是一个函数，你在里面想干嘛都可以，只要最后触发 mutation 就行。vuex 真正限制的只有 mutation 必须是同步的这一点（在 redux 里面就好像 reducer 必须同步返回下一个状态一样）。
+
+同步的意义在于这样每一个 mutation 执行完成后都可以对应到一个新的状态（和 reducer 一样），这样 devtools 就可以打个 snapshot 存下来，然后就可以随便 time-travel 了。
+
+如果你开着 devtool 调用一个异步的 action，你可以清楚地看到它所调用的 mutation 是何时被记录下来的，并且可以立刻查看它们对应的状态。
 
 
 
@@ -482,46 +498,6 @@ SSR 即服务端渲染，Vue 在客户端将标签渲染成的整个 html 片段
 
 
 
-#### Vue性能优化？
-
-代码层面：
-
-- 路由懒加载
-- keep-alive缓存页面
-- 使用v-show复用DOM
-- v-for 遍历避免同时使用 v-if
-- 长列表性能优化
-  - 纯粹的数据展示，不会有任何改变，就不需要做响应化
-  - 大数据长列表，可采用虚拟滚动，只渲染少部分区域的内容
-- Vue 组件销毁会自动解绑它的全部指令及事件监听器，但仅限于组件本身事件，像timer等需beforeDestroy时销毁
-- 图片懒加载
-- 第三方插件（如element组件）按需引入
-- 无状态的组件标记为函数式组件
-- 变量本地化（不需要双向绑定的变量本地声明）
-- 对SEO有要求就SSR
-
-Webpack层面：
-
-- Webpack 对图片进行压缩
-- 减少 ES6 转为 ES5 的冗余代码
-- 提取公共代码
-- 模板预编译
-- 提取组件的 CSS
-- 优化 SourceMap
-- 构建结果输出分析
-- Vue 项目的编译优化
-
-Web技术优化：
-
-- 开启 gzip 压缩
-- 浏览器缓存
-- CDN 的使用
-- 使用 `Chrome Performance` 查找性能瓶颈
-
-
-
-
-
 #### Vue、React 的区别和联系？
 
 **设计原则：**
@@ -558,80 +534,9 @@ React是单向数据流，它的属性不允许更改，状态可更改，组件
 
 
 
-#### Vue3新特性？
-
-- 更快
-  -  虚拟DOM重写
-  - 优化slots的生成
-  - 静态树提升
-  - 静态属性提升
-  - 基于Proxy的响应式系统
-
-- 更小：
-  - 通过摇树优化核心库体积，开发时没有使用到的Vue特性不会被打包进代码
-
-- 更容易维护：
-  - TypeScript + 模块化
-
-- 更加友好
-  - 跨平台：编译器核心和运行时核心与平台无关，使得Vue更容易与任何平台（Web、Android、iOS）一起使用
-
-- 更容易使用
-  - 改进的TypeScript支持，编辑器能提供强有力的类型检查和错误及警告
-  - 更好的调试支持
-  - 独立的响应化模块
-  - Composition API
+#### ————————
 
 
-
-#### Vue3为什么不需要时间切片？
-
-主要还是优缺点的权衡问题
-
-在Web应用程序中，丢帧更新通常是由于 同步的高CPU时间 和 原生DOM更新 造成的
-
-时间切片是在CPU工作期间保持应用响应的一种方式，它只对CPU工作产生影响。因为 DOM的更新必须是同步的，以确保最终DOM状态一致
-
-所以，想象两种丢帧更新的场景：
-
-1. CPU工作时间在16ms以内，但是需要做大量原生DOM更新操作。这种情况下不管有没有使用时间切片，应用依旧会感觉到掉帧
-2. CPU任务非常繁重，需要超过16ms的时间。理论上时间切片开始发挥作用了。然而，HCI研究表明，除非它在进行动画，否则对于正常的用户交互，大多数人对于100毫秒内的更新是感觉不到有什么不同的。
-
-也就是说，只有在频繁进行超过100ms的纯CPU任务更新时，时间切片才有实际作用
-
-React经常会出现这种情况：
-
-- React的虚拟DOM操作天生就比较慢，因为它使用了大量的Fiber架构
-
-- React使用JSX来渲染函数相对较于用模板来渲染更加难以优化，模板更易于静态分析
-
-- React Hooks将大部分组件树级优化（即防止不必要的子组件的重新渲染）留给了开发人员，开发人员在大多数情况下需要显式地使用`useMemo`。而且，不管什么时候React接收到了`children`属性，它几乎总要重新渲染，因为每次的子组件都是一棵新的vdom树。也意味着，一个使用Hook的React应用在默认配置下会过度渲染。更糟的是，像`useMomo`这类优化不能轻易地自动应用，因为：
-  - 它需要正确的deps数组
-  - 盲目地任意使用它可能会阻塞本该进行的更新，类似与`PureComponent`
-
-大多数开发人员都很懒，不会积极地优化他们的应用。所以大多数使用Hook的React应用会做很多不必要的CPU工作，所以react需要时间切片
-
-上面的问题对比Vue来说：
-
-- Vue本质上更简单，因此虚拟DOM操作更快（没有时间切片-> 没有`fiber`-> 更少的开销）
-
-- Vue通过分析模板进行了大量的AOT优化，减少了虚拟DOM操作的基本开销。Vue3原生执行速度甚至比Svelte更快，在CPU上花费时间不到React的1/10
-
-- 智能组件树级优化通过响应式跟踪，将插槽编译成函数（避免子元素重复渲染）和自动缓存内联句柄（避免内联函数重复渲染）。除非必要，否则子组件永远不需要重新渲染。这一切并不需要开发人员进行任何手动优化。这也意味着对于同一个更新，React应用可能造成多个组件重新渲染，但在Vue中大部分情况下只会导致一个组件重新渲染
-
-默认情况下， Vue3应用比React应用花费更少的CPU工作时间， 并且CPU工作时间超过100ms的机会大幅度减少了，除非在一些极端的情况下，DOM可能成为更主要的瓶颈
-
-与此同时，**时间切片或者说并发模式（时间切片即并发模式的一个子特性）还带来了另一个问题**：
-
-时间切片使得框架安排并协调了所有更新，它在优先级、失效、重新实例化等方面产生了大量额外的复杂性。所有这些逻辑处理都不可能被`tree-shaken`，这将导致运行时基线的大小膨胀。即使包含了`Suspense`和所有的`tree-shaken`，Vue 3的运行时仍然只有当前React + React DOM的1/4大小
-
-时间切片提供一个新方法解决某一类问题(尤其是相关协调异步状态转换),但时间切片解决了React中比其他框架更突出的问题，同时也带来了成本。对于Vue 3来说，这种权衡是不值得的
-
-
-
-
-
-## 业务篇
 
 #### Vue中watch和created哪个先执行？
 
@@ -697,6 +602,692 @@ key应该绑定你v-for循环数据中的唯一值，这样就会大大减少渲
 
 
 
+## Vue3
+
+#### Vue3新特性？
+
+- 更快
+  -  虚拟DOM重写
+     -  Vue 2.X中 对于视图中模板每次更新，Vue会遍历模板下的每个节点，生成对应的虚拟DOM，再与原模板中的节点比较差异，通过DIFF算法找到变化的节点，改变节点的内容实现更新。
+     -  Vue3 标记模板中的静态内容，区别了模板中的静态和动态节点。更新时，只diff操作动态的内容
+  -  优化slots的生成
+  -  静态提升
+     -  当 Vue 的编译器在编译过程中，发现了一些不会变的节点或者属性，就会给这些节点打上一个静态标记。然后编译器在生成代码字符串的过程中，会发现这些静态的节点，并提升它们，将他们序列化成字符串，以此减少编译及渲染成本。有时可以跳过一整棵树
+     -  vue2中无论元素是否参与更新，每次都会重新创建，然后再渲染。vue3中对于不参与更新点元素，会做静态提升、只会被创建一次，在渲染时直接复用即可
+  -  事件缓存对象 cacheHandlers
+     -  vue2.x中，绑定事件每次触发都要重新生成全新的function去更新。Vue3中提供了事件缓存对象 cacheHandlers，当 cacheHandlers 开启，会自动生成一个内联函数，同时生成一个静态节点。当事件再次触发时，只需从缓存中调用即可，无需再次更新
+  -  基于Proxy的响应式系统
+     -  在vue2.X中，使用了Object.defineProperty来实现响应式对象，对于一些复杂的对象，必须循环遍历所有的域值才能劫持每一个属性，这使得组件的初始化非常耗时。同时，这种方式实现的响应式，对于对象来说，新增的属性（原先对象中没有存在的）需要通过this.$set() 等方式进行处理，才会具有响应式。
+     -  vue3中通过使用Proxy，解决了上述问题，使得不用针对每个属性来一一进行添加，减少开销提升性能
+
+- 更小：
+  - 通过摇树优化核心库体积，开发时没有使用到的Vue特性不会被打包进代码
+    - 在2.x版本中，很多函数都挂载在全局Vue对象上，比如nextTick、nextTick、nextTick、set等函数，因此虽然我们可能用不到，但打包时只要引入了vue这些全局函数仍然会打包进bundle中。
+    - 而在Vue3中，所有的API都通过ES6模块化的方式引入，这样就能让webpack或rollup等打包工具在打包时对没有用到API进行剔除，最小化bundle体积
+
+- 更容易维护：
+  - TypeScript + 模块化
+
+- 更加友好
+  - 跨平台：编译器核心和运行时核心与平台无关，使得Vue更容易与任何平台（Web、Android、iOS）一起使用
+
+- 更容易使用
+  - 改进的TypeScript支持，编辑器能提供强有力的类型检查和错误及警告
+  - 更好的调试支持
+  - 独立的响应化模块
+  - Composition API
 
 
-# 前端性能优化
+
+#### Vue3的diff优化
+
+先从前往后比较，当节点不同时，不再往后进行比较。接着又从后往前进行比较，当节点不同时，不再往前进行比较。
+
+经过预处理之后，最后利用 “最长递增子序列”，完成差异部分的比较，提高 diff 效率
+
+
+
+`Vue 3.0`中会在创建虚拟`DOM`的时候将会变化的内容进行**静态标记**，通过 `PatchFlags` 枚举定义了标记标识一个节点，这样`diff`算法的时候直接对比**有标记的**，对比的少了自然而然速度就**变快**了。
+
+在`Vue 2.x`中无论元素是否参与更新每次都会重新创建，然后渲染,这对于性能肯定是会有些许损耗。Vue3中`静态提升`会把不参与更新的静态元素给提升出来，就是类似把变量变成常量`不进行重新创建`。
+
+vue2.x中，绑定事件每次触发都要重新生成全新的function去更新。Vue3中提供了事件缓存对象 cacheHandlers，当 cacheHandlers 开启，会自动生成一个内联函数，同时生成一个静态节点。当事件再次触发时，只需从缓存中调用即可，无需再次更新
+
+
+
+
+#### Vue3生命周期
+
+vue3中，新增了一个`setup`生命周期函数，setup执行的时机是在`beforeCreate`生命函数之前执行，因此在这个函数中是不能通过`this`来获取实例的；同时为了命名的统一，将`beforeDestroy`改名为`beforeUnmount`，`destroyed`改名为`unmounted`
+
+- beforeCreate（建议使用setup代替）
+- created（建议使用setup代替）
+- setup
+- beforeMount
+- mounted
+- beforeUpdate
+- updated
+- beforeUnmount
+- unmounted
+
+通过在生命周期函数前加`on`来访问组件的生命周期
+
+- onBeforeMount
+- onMounted
+- onBeforeUpdate
+- onUpdated
+- onBeforeUnmount
+- onUnmounted
+- onErrorCaptured
+- onRenderTracked
+- onRenderTriggered
+
+
+
+#### Vue3为什么不需要时间切片？
+
+主要还是优缺点的权衡问题
+
+在Web应用程序中，丢帧更新通常是由于 同步的高CPU时间 和 原生DOM更新 造成的
+
+时间切片是在CPU工作期间保持应用响应的一种方式，它只对CPU工作产生影响。因为 DOM的更新必须是同步的，以确保最终DOM状态一致
+
+所以，想象两种丢帧更新的场景：
+
+1. CPU工作时间在16ms以内，但是需要做大量原生DOM更新操作。这种情况下不管有没有使用时间切片，应用依旧会感觉到掉帧
+2. CPU任务非常繁重，需要超过16ms的时间。理论上时间切片开始发挥作用了。然而，HCI研究表明，除非它在进行动画，否则对于正常的用户交互，大多数人对于100毫秒内的更新是感觉不到有什么不同的。
+
+也就是说，只有在频繁进行超过100ms的纯CPU任务更新时，时间切片才有实际作用
+
+React经常会出现这种情况：
+
+- React的虚拟DOM操作天生就比较慢，因为它使用了大量的Fiber架构
+
+- React使用JSX来渲染函数相对较于用模板来渲染更加难以优化，模板更易于静态分析
+
+- React Hooks将大部分组件树级优化（即防止不必要的子组件的重新渲染）留给了开发人员，开发人员在大多数情况下需要显式地使用`useMemo`。而且，不管什么时候React接收到了`children`属性，它几乎总要重新渲染，因为每次的子组件都是一棵新的vdom树。也意味着，一个使用Hook的React应用在默认配置下会过度渲染。更糟的是，像`useMomo`这类优化不能轻易地自动应用，因为：
+  - 它需要正确的deps数组
+  - 盲目地任意使用它可能会阻塞本该进行的更新，类似与`PureComponent`
+
+大多数开发人员都很懒，不会积极地优化他们的应用。所以大多数使用Hook的React应用会做很多不必要的CPU工作，所以react需要时间切片
+
+上面的问题对比Vue来说：
+
+- Vue本质上更简单，因此虚拟DOM操作更快（没有时间切片-> 没有`fiber`-> 更少的开销）
+
+- Vue通过分析模板进行了大量的AOT优化，减少了虚拟DOM操作的基本开销。Vue3原生执行速度甚至比Svelte更快，在CPU上花费时间不到React的1/10
+
+- 智能组件树级优化通过响应式跟踪，将插槽编译成函数（避免子元素重复渲染）和自动缓存内联句柄（避免内联函数重复渲染）。除非必要，否则子组件永远不需要重新渲染。这一切并不需要开发人员进行任何手动优化。这也意味着对于同一个更新，React应用可能造成多个组件重新渲染，但在Vue中大部分情况下只会导致一个组件重新渲染
+
+默认情况下， Vue3应用比React应用花费更少的CPU工作时间， 并且CPU工作时间超过100ms的机会大幅度减少了，除非在一些极端的情况下，DOM可能成为更主要的瓶颈
+
+与此同时，**时间切片或者说并发模式（时间切片即并发模式的一个子特性）还带来了另一个问题**：
+
+时间切片使得框架安排并协调了所有更新，它在优先级、失效、重新实例化等方面产生了大量额外的复杂性。所有这些逻辑处理都不可能被`tree-shaken`，这将导致运行时基线的大小膨胀。即使包含了`Suspense`和所有的`tree-shaken`，Vue 3的运行时仍然只有当前React + React DOM的1/4大小
+
+时间切片提供一个新方法解决某一类问题(尤其是相关协调异步状态转换),但时间切片解决了React中比其他框架更突出的问题，同时也带来了成本。对于Vue 3来说，这种权衡是不值得的
+
+
+
+
+
+## 打包构建编译
+
+#### vite/rollup/webpack/gulp的对比
+
+Rollup（https://rollupjs.org） 是一个和Webpack很类似但专注于ES6的模块打包工具。它的亮点在于，能针对ES6源码进行Tree Shaking，以去除那些已被定义但没被使用的代码并进行Scope Hoisting，以减小输出文件的大小和提升运行性能。然而Rollup的这些亮点随后就被Webpack模仿和实现。但是Rollup其打包出来的代码更小、更快，应用场景在框架、组件库、生成单一umd文件的场景
+
+Webpack（https://webpack.js.org） 是一个打包模块化JavaScript的工具，在Webpack里一切文件皆模块，通过Loader转换文件，通过Plugin注入钩子，最后输出由多个模块组合成的文件。Webpack专注于构建模块化项目，所以应用场景是应用程序开发
+
+Gulp（http://gulpjs.com） 是一个基于流的自动化构建工具，Gulp的最大特点是引入了流的概念，同时提供了一系列常用的插件去处理流，流可以在插件之间传递，应用场景在于静态资源密集型场景，如css、img等静态资源整合
+
+vite在启动的时候不需要打包，也就意味着不需要分析模块的依赖、不需要编译，因此启动速度非常快。当浏览器请求某个模块时，再根据需要对模块内容进行编译。这种按需动态编译的方式，极大的缩减了编译时间，项目越复杂、模块越多，vite的优势越明显。。由于现代浏览器本身就支持ES Module，会自动向依赖的Module发出请求。vite充分利用这一点，将开发环境下的模块文件，就作为浏览器要执行的文件，而不是像webpack那样进行打包合并。。在HMR（热更新）方面，当改动了一个模块后，vite仅需让浏览器重新请求该模块即可，不像webpack那样需要把该模块的相关依赖模块全部编译一次，效率更高。。当需要打包到生产环境时，vite使用传统的rollup（也可以自己手动安装webpack来）进行打包，2.0中切换到了esbuild，esbuild是go编写的2，因此，vite的主要优势在开发阶段。另外，由于vite利用的是ES Module，因此在代码中（除了vite.config.js里面，这里是node的执行环境）不可以使用CommonJS
+
+
+
+#### babel 编译原理
+
+`Babel` 是一个 `JavaScript` 编译器
+
+Babel 的编译过程和大多数其他语言的编译器相似，可以分为三个阶段：
+
+- 解析（Parsing）：将代码字符串解析成抽象语法树。
+
+  - `Babel` 拿到源代码会把代码抽象出来，变成 `AST` （抽象语法树），全称是 **Abstract Syntax Tree**。抽象语法树是源代码的抽象语法结构的树状表示，树上的每个节点都表示源代码中的一种结构，只所以说是抽象的，是因为抽象语法树并不会表示出真实语法出现的每一个细节，比如说，嵌套括号被隐含在树的结构中，并没有以节点的形式呈现，它们主要用于源代码的简单转换。
+  - AST抽象生成过程：分词、语法分析
+  - 分词：将整个代码字符串分割成语法单元数组（语法单元通俗点说就是代码中的最小单元，不能再被分割，就像原子是化学变化中的最小粒子一样。`Javascript` 代码中的语法单元主要包括以下这么几种：）
+    - 关键字：`const`、 `let`、  `var` 等
+    - 标识符：可能是一个变量，也可能是 if、else 这些关键字，又或者是 true、false 这些常量
+    - 运算符
+    - 数字
+    - 空格
+    - 注释：对于计算机来说，知道是这段代码是注释就行了，不关心其具体内容
+  - 语法分析：建立分析语法单元之间的关系
+    - 语义分析则是将得到的词汇进行一个立体的组合，确定词语之间的关系。考虑到编程语言的各种从属关系的复杂性，语义分析的过程又是在遍历得到的语法单元组，相对而言就会变得更复杂。
+    - 简单来说语法分析是对语句和表达式识别，这是个递归过程，在解析中，`Babel`  会在解析每个语句和表达式的过程中设置一个暂存器，用来暂存当前读取到的语法单元，如果解析失败，就会返回之前的暂存点，再按照另一种方式进行解析，如果解析成功，则将暂存点销毁，不断重复以上操作，直到最后生成对应的语法树。
+
+- 转换（Transformation）：对抽象语法树进行转换操作，访问 AST 的节点进行变换操作生产新的 AST。
+
+  - ##### **Plugins**
+
+    - ##### 插件应用于 `babel` 的转译过程，尤其是第二个阶段 `Transformation`，如果这个阶段不使用任何插件，那么 `babel` 会原样输出代码。
+
+  - ##### **Presets**
+
+    - ##### `Babel` 官方帮我们做了一些预设的插件集，称之为 `Preset`，这样我们只需要使用对应的 Preset 就可以了。每年每个 `Preset` 只编译当年批准的内容。而 `babel-preset-env` 相当于 ES2015 ，ES2016 ，ES2017 及最新版本。
+
+  - ##### **Plugin/Preset 排序**（如果两次转译都访问相同的节点，则转译将按照 Plugin 或 Preset 的规则进行排序然后执行。）
+
+    - Plugin 会运行在 Preset 之前。
+    - Plugin 会从第一个开始顺序执行。
+    - Preset 的顺序则刚好相反(从最后一个逆序执行)。
+
+- 生成（Code Generation）: 根据变换后的抽象语法树再生成代码字符串。
+
+  - 用 `babel-generator` 通过 AST 树生成 ES5 代码
+
+
+
+简单：
+
+- 解析：将代码转换成 AST
+  - 词法分析：将代码(字符串)分割为token流，即语法单元成的数组
+  - 语法分析：分析token流(上面生成的数组)并生成 AST
+- 转换：访问 AST 的节点进行变换操作生产新的 AST
+  - Taro就是利用 babel 完成的小程序语法转换
+- 生成：以新的 AST 为基础生成代码
+
+
+
+
+
+## Vite
+
+#### vite快的原因
+
+一个基于浏览器原生 ES `imports` 的开发服务器。 利用浏览器去解析 `imports`，在服务器端按需编译返回，完全跳过了打包这个概念， 服务器随起随用。 同时不仅有 `Vue` 文件支持，还搞定了热更新，而且热更新的速度不会随着模块增多而变慢。 针对生产环境则可以把同一份代码用 `rollup` 打包。
+
+
+- ES module 减少服务启动时间
+  - 由于大多数现代浏览器都支持上面的 ES module 语法，所以在开发阶段，我们就不必对其进行打包，这节省了大量的服务启动时间。另外，vite 按需加载当前页面所需文件，一个文件一个http请求，进一步减少启动时间
+
+- 缓存减少页面更新时间
+  - 每个文件通过 http 头缓存在浏览器端，当编辑完一个文件，只需让此文件缓存失效。当基于 ES module 进行热更新时，仅需更新失效的模块，这使得更新时间不随包的增大而增大
+
+
+
+
+
+## Webpack
+
+#### 常见的Loader？
+
+- `raw-loader`：加载文件原始内容（utf-8）
+- `file-loader`：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件 (处理图片和字体)
+- `url-loader`：与 file-loader 类似，区别是用户可以设置一个阈值，大于阈值会交给 file-loader 处理，小于阈值时返回文件 base64 形式编码 (处理图片和字体)
+- `source-map-loader`：加载额外的 Source Map 文件，以方便断点调试
+- `svg-inline-loader`：将压缩后的 SVG 内容注入代码中
+- `image-loader`：加载并且压缩图片文件
+- `json-loader` 加载 JSON 文件（默认包含）
+- `handlebars-loader`: 将 Handlebars 模版编译成函数并返回
+- `babel-loader`：把 ES6 转换成 ES5
+- `ts-loader`: 将 TypeScript 转换成 JavaScript
+- `awesome-typescript-loader`：将 TypeScript 转换成 JavaScript，性能优于 ts-loader
+- `sass-loader`：将SCSS/SASS代码转换成CSS
+- `css-loader`：加载 CSS，支持模块化、压缩、文件导入等特性
+- `style-loader`：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS
+- `postcss-loader`：扩展 CSS 语法，使用下一代 CSS，可以配合 autoprefixer 插件自动补齐 CSS3 前缀
+- `eslint-loader`：通过 ESLint 检查 JavaScript 代码
+- `tslint-loader`：通过 TSLint检查 TypeScript 代码
+- `mocha-loader`：加载 Mocha 测试用例的代码
+- `coverjs-loader`：计算测试的覆盖率
+- `vue-loader`：加载 Vue.js 单文件组件
+- `i18n-loader`: 国际化
+- `cache-loader`: 可以在一些性能开销较大的 Loader 之前添加，目的是将结果缓存到磁盘里
+
+
+
+#### 常见的Plugin？
+
+- `define-plugin`：定义环境变量 (Webpack4 之后指定 mode 会自动配置)
+- `ignore-plugin`：忽略部分文件
+
+- `html-webpack-plugin`：简化 HTML 文件创建 (依赖于 html-loader)
+
+- `web-webpack-plugin`：可方便地为单页应用输出 HTML，比 html-webpack-plugin 好用
+
+- `uglifyjs-webpack-plugin`：不支持 ES6 压缩 (Webpack4 以前)
+
+- `terser-webpack-plugin`: 支持压缩 ES6 (Webpack4)
+
+- `webpack-parallel-uglify-plugin`: 多进程执行代码压缩，提升构建速度
+
+- `mini-css-extract-plugin`: 分离样式文件，CSS 提取为独立文件，支持按需加载 (替代extract-text-webpack-plugin)
+
+- `serviceworker-webpack-plugin`：为网页应用增加离线缓存功能
+
+- `clean-webpack-plugin`: 目录清理
+
+- `ModuleConcatenationPlugin`: 开启 Scope Hoisting
+
+- `speed-measure-webpack-plugin`: 可以看到每个 Loader 和 Plugin 执行耗时 (整个打包耗时、每个 Plugin 和 Loader 耗时)
+
+- `webpack-bundle-analyzer`: 可视化 Webpack 输出文件的体积 (业务组件、依赖第三方模块)
+
+
+
+#### Loader和Plugin的区别？
+
+`Loader` 本质就是一个函数，在该函数中对接收到的内容进行转换，返回转换后的结果。 因为 Webpack 只认识 JavaScript，所以 Loader 就成了翻译官的存在，对其他类型的资源进行转译的预处理工作。
+
+`Plugin` 就是插件，基于事件流框架 `Tapable`，插件可以扩展 Webpack 的功能，在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
+
+`Loader` 在 module.rules 中配置，作为模块的解析规则，类型为数组。每一项都是一个 Object，内部包含了 test(类型文件)、loader、options (参数)等属性
+
+`Plugin` 在 plugins 中单独配置，类型为数组，每一项是一个 Plugin 的实例，参数都通过构造函数传入
+
+
+
+#### 你用过哪些可以提高效率的webpack插件？
+
+- `webpack-dashboard`：可以更友好的展示相关打包信息。
+
+- `webpack-merge`：提取公共配置，减少重复配置代码
+
+- `speed-measure-webpack-plugin`：简称 SMP，分析出 Webpack 打包过程中 Loader 和 Plugin 的耗时，有助于找到构建过程中的性能瓶颈。
+
+- `size-plugin`：监控资源体积变化，尽早发现问题
+
+- `HotModuleReplacementPlugin`：模块热替换
+
+
+
+#### SourceMap是什么？怎么在生产环境用它？
+
+`source map` 是将编译、打包、压缩后的代码映射回源代码的过程。打包压缩后的代码不具备良好的可读性，想要调试源码就需要 soucre map
+
+map文件只要不打开开发者工具，浏览器是不会加载的
+
+线上环境一般有三种处理方案：
+
+- `hidden-source-map`：借助第三方错误监控平台 Sentry 使用
+- `nosources-source-map`：只会显示具体行数以及查看源代码的错误栈。安全性比 sourcemap 高
+- `sourcemap`：通过 nginx 设置将 .map 文件只对白名单开放(公司内网)
+
+注意：避免在生产中使用 `inline-` 和 `eval-`，因为它们会增加 bundle 体积大小，并降低整体性能
+
+
+
+#### Webpack构建流程？
+
+Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程：
+
+- `初始化参数`：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数
+- `开始编译`：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译
+- `确定入口`：根据配置中的 entry 找出所有的入口文件
+- `编译模块`：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理
+- `完成模块编译`：在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系
+- `输出资源`：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会
+- `输出完成`：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统
+
+在以上过程中，`Webpack` 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果。
+
+**简单说就是**
+
+- 初始化：启动构建，读取与合并配置参数，加载 Plugin，实例化 Compiler
+- 编译：从 Entry 出发，针对每个 Module 串行调用对应的 Loader 去翻译文件的内容，再找到该 Module 依赖的 Module，递归地进行编译处理
+- 输出：将编译后的 Module 组合成 Chunk，将 Chunk 转换成文件，输出到文件系统中
+
+
+
+#### Webpack模块打包原理？
+
+Webpack 实际上只是为每个模块创造了一个可以导出和导入的环境，本质上并没有修改 代码的执行逻辑，代码执行顺序与模块加载顺序也完全一致
+
+只是把依赖的模块转化成可以代表这些包的静态文件。并不是什么 commonjs 或者 amd 之类的模块化规范。webpack 就是识别入口文件和模块依赖，来打包代码。至于代码使用的是 commonjs 还是 amd 或者 es6 的 import。webpack 都会对其进行分析。来获取代码的依赖。webpack做的就是分析代码，转换代码，编译代码，输出代码。
+
+webpack本身是一个node的模块，所以webpack.config.js是以commonjs形式书写的(node中的模块化是commonjs规范的)
+
+
+
+#### 文件监听原理？
+
+在发现源码发生变化时，自动重新构建出新的输出文件
+
+Webpack开启监听模式，有两种方式：
+
+- 启动 webpack 命令时，带上 --watch 参数
+- 在配置 webpack.config.js 中设置 watch:true
+
+缺点：每次需要手动刷新浏览器
+
+原理：轮询判断文件的最后编辑时间是否变化，如果某个文件发生了变化，并不会立刻告诉监听者，而是先缓存起来，等 `aggregateTimeout` 后再执行。
+
+```js
+module.export = {
+    // 默认false,也就是不开启
+    watch: true,
+    // 只有开启监听模式时，watchOptions才有意义
+    watchOptions: {
+        // 默认为空，不监听的文件或者文件夹，支持正则匹配
+        ignored: /node_modules/,
+        // 监听到变化发生后会等300ms再去执行，默认300ms
+        aggregateTimeout:300,
+        // 判断文件是否发生变化是通过不停询问系统指定文件有没有变化实现的，默认每秒问1000次
+        poll:1000
+    }
+}
+```
+
+
+
+#### Webpack热更新原理?
+
+`Webpack` 的热更新又称热替换（`Hot Module Replacement`），缩写为 `HMR`。 这个机制可以做到不用刷新浏览器而将新变更的模块替换掉旧的模块。
+
+HMR的核心就是客户端从服务端拉去更新后的文件，准确的说是 chunk diff (chunk 需要更新的部分)，实际上 WDS 与浏览器之间维护了一个 `Websocket`，当本地资源发生变化时，WDS 会向浏览器推送更新，并带上构建时的 hash，让客户端与上一次资源进行对比。客户端对比出差异后会向 WDS 发起 `Ajax` 请求来获取更改内容(文件列表、hash)，这样客户端就可以再借助这些信息继续向 WDS 发起 `jsonp` 请求获取该chunk的增量更新
+
+后续的部分(拿到增量更新之后如何处理？哪些状态该保留？哪些又需要更新？)由 `HotModulePlugin` 来完成，提供了相关 API 以供开发者针对自身场景进行处理，像`react-hot-loader` 和 `vue-loader` 都是借助这些 API 实现 HMR
+
+
+
+#### 如何对bundle体积进行监控和分析?
+
+`VSCode` 中有一个插件 `Import Cost` 可以帮助我们对引入模块的大小进行实时监测，还可以使用 `webpack-bundle-analyzer` 生成 `bundle` 的模块组成图，显示所占体积。
+
+`bundlesize` 工具包可以进行自动化资源体积监控。
+
+
+
+#### 什么是文件指纹？
+
+文件指纹是打包后输出的文件名的后缀。
+
+- `Hash`：和整个项目的构建相关，只要项目文件有修改，整个项目构建的 hash 值就会更改
+- `Chunkhash`：和 Webpack 打包的 chunk 有关，不同的 entry 会生出不同的 chunkhash
+- `Contenthash`：根据文件内容来定义 hash，文件内容不变，则 contenthash 不变
+
+
+
+
+
+#### 如何保证各个loader按照预想方式工作?
+
+实际工程中，配置文件上百行乃是常事，为了保证各个 loader 按照预想方式工作 ，可以使用 `enforce` 强制执行 `loader` 的作用顺序，`pre` 代表在所有正常 loader 之前执行，`post` 是所有 loader 之后执行。(inline 官方不推荐使用)
+
+
+
+#### 如何优化 Webpack 的构建速度？
+
+- `多进程/多实例构建`：HappyPack(不维护了)、thread-loader
+- 压缩代码
+  - 多进程并行压缩
+    - webpack-paralle-uglify-plugin
+    - uglifyjs-webpack-plugin 开启 parallel 参数 (不支持ES6)
+    - terser-webpack-plugin 开启 parallel 参数
+  - 通过 mini-css-extract-plugin 提取 Chunk 中的 CSS 代码到单独文件，通过 css-loader 的 minimize 选项开启 cssnano 压缩 CSS
+- 图片压缩
+  - 使用基于 Node 库的 imagemin (很多定制选项、可以处理多种图片格式)
+  - 配置 image-webpack-loader
+- 缩小打包作用域
+  - exclude/include (确定 loader 规则范围)
+  - resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找)
+  - resolve.mainFields 只采用 main 字段作为入口文件描述字段 (减少搜索步骤，需要考虑到所有运行时依赖的第三方模块的入口文件描述字段)
+  - resolve.extensions 尽可能减少后缀尝试的可能性
+  - noParse 对完全不需要解析的库进行忽略 (不去解析但仍会打包到 bundle 中，注意被忽略掉的文件里不应该包含 import、require、define 等模块化语句)
+  - IgnorePlugin (完全排除模块)
+  - 合理使用alias
+- 提取页面公共资源
+  - 基础包分离
+    - 使用 html-webpack-externals-plugin，将基础包通过 CDN 引入，不打入 bundle 中
+    - 使用 SplitChunksPlugin 进行(公共脚本、基础包、页面公共文件)分离(Webpack4内置) ，替代了 CommonsChunkPlugin 插件
+- DLL
+  - 使用 DllPlugin 进行分包，使用 DllReferencePlugin(索引链接) 对 manifest.json 引用，让一些基本不会改动的代码先打包成静态资源，避免反复编译浪费时间。
+  - HashedModuleIdsPlugin 可以解决模块数字id问题
+- 充分利用缓存提升二次构建速度
+  - babel-loader 开启缓存
+  - terser-webpack-plugin 开启缓存
+  - 使用 cache-loader 或者 hard-source-webpack-plugin
+- Tree shaking
+  - 打包过程中检测工程中没有引用过的模块并进行标记，在资源压缩时将它们从最终的bundle中去掉(只能对ES6 Modlue生效) 开发中尽可能使用ES6 Module的模块，提高tree shaking效率
+  - 禁用 babel-loader 的模块依赖解析，否则 Webpack 接收到的就都是转换过的 CommonJS 形式的模块，无法进行 tree-shaking
+  - 使用 PurifyCSS(不在维护) 或者 uncss 去除无用 CSS 代码
+    - purgecss-webpack-plugin 和 mini-css-extract-plugin配合使用(建议)
+- Scope hoisting
+  - 构建后的代码会存在大量闭包，造成体积增大，运行代码时创建的函数作用域变多，内存开销变大。Scope hoisting 将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量以防止变量名冲突
+  - 必须是ES6的语法，因为有很多第三方库仍采用 CommonJS 语法，为了充分发挥 Scope hoisting 的作用，需要配置 mainFields 对第三方模块优先采用 jsnext:main 中指向的ES6模块化语法
+- 动态Polyfill
+  - 建议采用 polyfill-service 只给用户返回需要的polyfill，社区维护。 (部分国内奇葩浏览器UA可能无法识别，但可以降级返回所需全部polyfill)
+
+
+
+#### 是否写过Loader？编写loader的思路？
+
+Loader 支持链式调用，所以开发上需要严格遵循“单一职责”，每个 Loader 只负责自己需要负责的事情
+
+- Loader 运行在 Node.js 中，我们可以调用任意 Node.js 自带的 API 或者安装第三方模块进行调用
+- Webpack 传给 Loader 的原内容都是 UTF-8 格式编码的字符串，当某些场景下 Loader 处理二进制文件时，需要通过 exports.raw = true 告诉 Webpack 该 Loader 是否需要二进制数据
+- 尽可能的异步化 Loader，如果计算量很小，同步也可以
+- Loader 是无状态的，我们不应该在 Loader 中保留状态
+- 使用 loader-utils 和 schema-utils 为我们提供的实用工具
+- 加载本地 Loader 方法
+  - Npm link
+  - ResolveLoader
+
+
+
+#### 是否写过Plugin？编写Plugin的思路？
+
+webpack在运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在特定的阶段执行想要添加的自定义功能。Webpack 的 Tapable 事件流机制保证了插件的有序性，使得整个系统扩展性良好
+
+- compiler 暴露了和 Webpack 整个生命周期相关的钩子
+- compilation 暴露了与模块和依赖有关的粒度更小的事件钩子
+- 插件需要在其原型上绑定apply方法，才能访问 compiler 实例
+- 传给每个插件的 compiler 和 compilation对象都是同一个引用，若在一个插件中修改了它们身上的属性，会影响后面的插件
+- 找出合适的事件点去完成想要的功能
+  - emit 事件发生时，可以读取到最终输出的资源、代码块、模块及其依赖，并进行修改(emit 事件是修改 Webpack 输出资源的最后时机)
+  - watch-run 当依赖的文件发生变化时会触发
+- 异步的事件需要在插件处理完任务时调用回调函数通知 Webpack 进入下一个流程，不然会卡住
+
+
+
+
+
+
+
+## 前端性能优化
+
+Vue相关
+
+代码层面：
+
+- 路由懒加载
+- keep-alive缓存页面
+- 使用v-show复用DOM
+- v-for 遍历避免同时使用 v-if
+- 长列表性能优化
+  - 纯粹的数据展示，不会有任何改变，就不需要做响应化
+  - 大数据长列表，可采用虚拟滚动，只渲染少部分区域的内容
+- Vue 组件销毁会自动解绑它的全部指令及事件监听器，但仅限于组件本身事件，像timer等需beforeDestroy时销毁
+- 图片懒加载
+- 第三方插件（如element组件）按需引入
+- 无状态的组件标记为函数式组件
+- 变量本地化（不需要双向绑定的变量本地声明）
+- 对SEO有要求就SSR
+
+Webpack层面：
+
+- Webpack 对图片进行压缩
+- 减少 ES6 转为 ES5 的冗余代码
+- 提取公共代码
+- 模板预编译
+- 提取组件的 CSS
+- 优化 SourceMap
+- 构建结果输出分析
+- Vue 项目的编译优化
+
+Web技术优化：
+
+- 开启 gzip 压缩
+- 浏览器缓存
+- 使用 `cdn` 文件来减少工程到打包体积，也可以按需加载
+- 使用 `Chrome Performance` 查找性能瓶颈
+
+**preload**
+
+`preload` 页面加载的过程中，在浏览器开始主体渲染之前加载。
+
+**prefetch**
+
+`prefetch` 页面加载完成后，利用空闲时间提前加载。
+
+**dns-prefetch**
+
+页面加载完成后，利用空闲时间提前加载。
+
+
+
+**异步无阻塞加载JS**
+
+异步加载 js 文件，并且不会阻塞页面的渲染
+
+**defer**
+
+1. 不阻止解析 document， 并行下载 d.js, e.js
+2. 即使下载完 d.js, e.js 仍继续解析 document
+3. 按照页面中出现的顺序，在其他同步脚本执行后，DOMContentLoaded 事件前 依次执行 d.js, e.js。
+
+**async**
+
+1. 不阻止解析 document, 并行下载 b.js, c.js
+2. 当脚本下载完后立即执行。（两者执行顺序不确定，执行阶段不确定，可能在 DOMContentLoaded 事件前或者后 ）
+
+
+
+**感知性能优化**
+
+loading
+
+骨架屏
+
+
+
+## 前端安全
+
+#### XSS
+
+XSS是跨站脚本攻击（Cross-Site Scripting）的简称
+
+XSS有几种不同的分类办法，例如按照恶意输入的脚本是否在应用中存储，XSS被划分为“存储型XSS”和“反射型XSS”，如果按照是否和服务器有交互，又可以划分为“Server Side XSS”和“DOM based XSS”。
+
+
+
+防御XSS最佳的做法就是对数据进行严格的输出编码，使得攻击者提供的数据不再被浏览器认为是脚本而被误执行。例如`<script>`在进行HTML编码后变成了`<script>`，而这段数据就会被浏览器认为只是一段普通的字符串，而不会被当做脚本执行了。
+
+
+
+#### CSRF
+
+CSRF（Cross-site request forgery）跨站请求伪造：攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站执行某项操作的目的。
+
+一个典型的CSRF攻击有着如下的流程：
+
+- 受害者登录a.com，并保留了登录凭证（Cookie）。
+- 攻击者引诱受害者访问了b.com
+- b.com 向 a.com发送了一个请求：a.com/act=xx。浏览器会…
+- a.com接收到请求后，对请求进行验证，并确认是受害者的凭证，误以为是受害者自己发送的请求。
+- a.com以受害者的名义执行了act=xx。
+- 攻击完成，攻击者在受害者不知情的情况下，冒充受害者，让a.com执行了自己定义的操作。
+
+特点：
+
+- 攻击一般发起在第三方网站，而不是被攻击的网站。被攻击的网站无法防止攻击发生。
+
+- 攻击利用受害者在被攻击网站的登录凭证，冒充受害者提交操作；而不是直接窃取数据。
+
+- 整个过程攻击者并不能获取到受害者的登录凭证（Cookie等信息），仅仅是“冒用”。
+
+- 跨站请求可以用各种方式：图片URL、超链接、CORS、Form提交等等。部分请求方式可以直接嵌入在第三方论坛、文章中，难以进行追踪。
+
+CSRF通常是跨域的，因为外域通常更容易被攻击者掌控。但是如果本域下有容易被利用的功能，比如可以发图和链接的论坛和评论区，攻击可以直接在本域下进行，而且这种攻击更加危险。
+
+防护：
+
+- 阻止不明外域的访问
+  - 同源检测
+  - Samesite Cookie
+- 提交时要求附加本域才能获取的信息
+  - CSRF Token
+  - 双重Cookie验证
+
+##### **同源检测**
+
+在HTTP协议中，每一个异步请求都会携带两个Header，用于标记来源域名：
+
+- Origin Header
+  - 302重定向之后Origin不包含在重定向的请求中
+  - IE 11 不会在跨站CORS请求上添加Origin标头，Referer头将仍然是唯一的标识
+- Referer Header
+
+这两个Header在浏览器发起请求时，大多数情况会自动带上，并且不能由前端自定义内容。 服务器可以通过解析这两个Header中的域名，确定请求的来源域。
+
+##### **Samesite Cookie**
+
+防止CSRF攻击的办法已经有上面的预防措施。为了从源头上解决这个问题，Google起草了一份草案来改进HTTP协议，那就是为Set-Cookie响应头新增Samesite属性，它用来标明这个 Cookie是个“同站 Cookie”，同站Cookie只能作为第一方Cookie，不能作为第三方Cookie，Samesite 有两个属性值，分别是 Strict 和 Lax
+
+**Strict：**这种称为严格模式，表明这个 Cookie 在任何情况下都不可能作为第三方 Cookie
+
+**Lax：**为宽松模式，比 Strict 放宽了点限制：假如这个请求是这种请求（改变了当前页面或者打开了新页面）且同时是个GET请求，则这个Cookie可以作为第三方Cookie。用户在不同网站之间通过链接跳转是不受影响了，但假如这个请求是从 a.com发起的对 b.com的异步请求，或者页面跳转是通过表单的 post 提交触发的，也不可以
+
+Samesite 不支持子域。导致了当我们网站有多个子域名时，不能使用SamesiteCookie在主域名存储用户登录信息。每个子域名都需要用户重新登录一次
+
+##### **CSRF Token**
+
+前面讲到CSRF的另一个特征是，攻击者无法直接窃取到用户的信息（Cookie，Header，网站内容等），仅仅是冒用Cookie中的信息。
+
+而CSRF攻击之所以能够成功，是因为服务器误把攻击者发送的请求当成了用户自己的请求。那么我们可以要求所有的用户请求都携带一个CSRF攻击者无法获取到的Token。服务器通过校验请求是否携带正确的Token，来把正常的请求和攻击的请求区分开，也可以防范CSRF的攻击。
+
+##### **双重Cookie验证**
+
+在会话中存储CSRF Token比较繁琐，而且不能在通用的拦截上统一处理所有的接口。
+
+那么另一种防御措施是使用双重提交Cookie。利用CSRF攻击不能获取到用户Cookie的特点，我们可以要求Ajax和表单请求携带一个Cookie中的值。
+
+
+
+
+
+
+
+#### iframe
+
+iframe中的内容是由第三方来提供的，默认情况下他们不受我们的控制，他们可以在iframe中运行JavaScirpt脚本、Flash插件、弹出对话框等等，这可能会破坏前端用户体验
+
+HTML5中，iframe有了一个叫做sandbox的安全属性，通过它可以对iframe的行为进行各种限制，充分实现“最小权限“原则。使用sandbox的最简单的方式就是只在iframe元素中添加上这个关键词就好
+
+sandbox还忠实的实现了“Secure By Default”原则，也就是说，如果你只是添加上这个属性而保持属性值为空，那么浏览器将会对iframe实施史上最严厉的调控限制，基本上来讲就是除了允许显示静态资源以外，其他什么都做不了。比如不准提交表单、不准弹窗、不准执行脚本等等，连Origin都会被强制重新分配一个唯一的值，换句话讲就是iframe中的页面访问它自己的服务器都会被算作跨域请求。
+
+另外，sandbox也提供了丰富的配置参数，我们可以进行较为细粒度的控制。一些典型的参数如下：
+
+- allow-forms：允许iframe中提交form表单
+- allow-popups：允许iframe中弹出新的窗口或者标签页（例如，window.open()，showModalDialog()，target=”_blank”等等）
+- allow-scripts：允许iframe中执行JavaScript
+- allow-same-origin：允许iframe中的网页开启同源策略
+
+
+
+#### 点击劫持
+
+在通过iframe使用别人提供的内容时，我们自己的页面也可能正在被不法分子放到他们精心构造的iframe或者frame当中，进行点击劫持攻击。
+
+这是一种欺骗性比较强，同时也需要用户高度参与才能完成的一种攻击。通常的攻击步骤是这样的：
+
+1. 攻击者精心构造一个诱导用户点击的内容，比如Web页面小游戏
+2. 将我们的页面放入到iframe当中
+3. 利用z-index等CSS样式将这个iframe叠加到小游戏的垂直方向的正上方
+4. 把iframe设置为100%透明度
+5. 受害者访问到这个页面后，肉眼看到的是一个小游戏，如果受到诱导进行了点击的话，实际上点击到的却是iframe中的我们的页面
+
+点击劫持的危害在于，攻击利用了受害者的用户身份，在其不知情的情况下进行一些操作
+
+有多种防御措施都可以防止页面遭到点击劫持攻击，例如Frame Breaking方案。一个推荐的防御方案是，使用X-Frame-Options：DENY这个HTTP Header来明确的告知浏览器，不要把当前HTTP响应中的内容在HTML Frame中显示出来。
