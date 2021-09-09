@@ -2,13 +2,13 @@
 
 ## 写在前面
 
-CommonJS、AMD、CMD、UMD、ESM，如果你不知道它们，如果你经常被它们搞混，如果你知道它们却不知道它们之间的联系，如果你知道它们之间的联系却不知道它们的核心实现，你都应该好好看一看这篇文章，相信它可以助你一臂之力，因为你应该找不到比这更 `俗` 的文章了
+CommonJS、AMD、CMD、UMD、ESM，相信很多前端新同学甚至有些喜好摸鱼的老同学经常被它们搞混，如果你知道它们却不知道它们之间的联系，如果你知道它们之间的联系却不知道它们的核心实现，你都应该好好看一看这篇文章，相信它可以助你一臂之力，因为你应该找不到比这更 `俗` 的文章了
 
 
 
 ## 什么是模块化
 
-模块化其实是指解决一个复杂问题时 `自顶向下逐层把系统划分成若干模块` 的过程，每个模块完成一个特定的子功能（单一职责），所有的模块按某种方法组装起来，成为一个整体，从而完成整个系统所要求的功能，不太理解没关系，接着往下看
+模块化其实是指解决一个复杂问题时 `自顶向下逐层把系统划分成若干模块` 的过程，每个模块完成一个特定的子功能（单一职责），所有的模块按某种方法组装起来，成为一个整体，从而完成整个系统所要求的功能，不理解没关系，接着往下看
 
 
 
@@ -18,9 +18,9 @@ CommonJS、AMD、CMD、UMD、ESM，如果你不知道它们，如果你经常被
 
 随着我们 `Web` 技术的发展，各种交互以及新技术等使网页变得越来越丰富，逐渐我们前端工程师登上了舞台，同时也使得我们前端同学的代码量急速上涨、复杂度在逐步增高，越来越多的业务逻辑和交互都放在 Web 层实现，代码一多，各种命名冲突、代码冗余、文件间依赖变大等等一系列的问题就出来了，甚至导致后期难以维护
 
-在这些问题上，其他诸如 java、php 等后端语言中早已有了很多实践经验，那就是模块化，因为小的、组织良好的代码远比庞大的代码更易理解和维护，于是我们前端也开启了模块化历程
+在这些问题上，其他如 java、php 等后端语言中早已有了很多实践经验，那就是模块化，因为小的、组织良好的代码远比庞大的代码更易理解和维护，于是我们前端也开启了模块化历程
 
-前端三剑客占据主导地位的 JS 早期不是一种模块化编程语言，规范中也没有模块（即module）的概念，所以模块的实现就显得很麻烦了，不过早期的前端工程师通过 JS 的语言特性来模拟实现了模块化
+前端三剑客中占据主导地位的 JS 在早期不是一种模块化编程语言，规范中也没有模块（即module）的概念，所以模块的实现就显得很麻烦了，不过早期的前端工程师通过 JS 的语言特性来模拟实现了模块化
 
 
 
@@ -129,9 +129,9 @@ var myModule = (function(other) {
 
 ### 依赖注入
 
-模块化发展的历程中还有模版定义依赖、注释定义依赖等方案，这些我觉得并不具有很强的学习性质，不多说了，我们下面说依赖注入（Dependency Indection, DI），说到这个，不得不提起三大框架之一的 `Angular`，它诞生于 2009 年，由 `Misko Hevery` 等人创建，后来被 `Google` 收购，它的核心特性之一就是依赖注入
+模块化发展的历程中还有模版定义依赖、注释定义依赖等方案，这些我觉得并不具有很强的学习性质，不多说了，我们下面说依赖注入（Dependency Indection, DI），说到这个，不得不提起三大框架之一的 `Angular`，它诞生于 2009 年，其核心特性之一就是依赖注入
 
-那么假如我们有两个原始模块 `fnA` 和 `fnB`
+假如我们有两个原始模块 `fnA` 和 `fnB`
 
 ```js
 // 模块fnA
@@ -241,11 +241,11 @@ injector.register('fnB', fnB)
 
 JS 标准定义的 API 只是为了构建基于浏览器的应用程序，并没有制定一个用于更广泛的应用程序的标准库
 
-而 `CommonJS` 规范的提出主要是为了弥补 JS 没有标准的缺陷，由社区提出，终极目标就是提供一个类似 `Python` 或 `Ruby` 或` Java`语言的标准库，而不只是停留在脚本程序的阶段
+而 `CommonJS` 规范的提出主要是为了弥补 JS 没有标准的缺陷，它由社区提出，终极目标就是提供一个类似 `Python` 或 `Ruby` 或` Java`语言的标准库，而不只是停留在脚本程序的阶段
 
 即用 `CommonJS API` 编写出的应用不仅可利用 JS 来开发客户端应用，还可编写服务器端 JS 应用程序、命令行工具、桌面图形界面应用程序等
 
-2009 年，美国程序员 `Ryan Dahl` 以 `CommonJs` 规范为基础创造了 `node.js` 项目，将 JS 语言用于服务器端编程，为我们前端发展添了一把火，从此之后 nodejs 就成为了 `CommonJs` 的代名词
+2009 年，美国程序员 `Ryan Dahl` 以 `CommonJs` 规范为基础创造了 `node.js` 项目，将 JS 语言用于服务器端编程，为前端奠基，从此之后 nodejs 就成为了 `CommonJs` 的代名词
 
 `CommonJS` 规范中规定每个文件就是一个独立的模块，有自己的作用域，模块的变量、函数、类都是私有的，外部想要调用，必须使用 `module.exports` 主动暴露，而在另一个文件中引用则直接使用 `require(path)` 即可，如下
 
@@ -307,11 +307,185 @@ function Module(id, parent) {
 
 #### 核心实现
 
+不多说，先上代码为敬，简单几十行代码，带大家体会一下 commonJS。
 
+首先，我们创建一个 `test.js`，写如下代码：
 
+ ```js
+ module.exports = {
+   a:1,
+   b:2,
+   c(){
+     return 3
+   }
+ }
+ ```
 
+有人会问：不是要手写实现吗？ `module.exports` 明明是原生的。。接着看。
 
-**简单说，CommonJs 就是模块化的社区标准，而 Nodejs 就是 CommonJs 模块化规范的实现**，它对模块的加载是同步的，也就是说，只有引入的模块加载完成，才会执行后面的操作，在 `Node` 服务端应用当中，模块一般存在本地，加载较快，同步问题不大，在浏览器中就不太合适了，你试想一下，如果一个很大的项目，所有的模块都同步加载，那体验是极差的，所以还需要异步模块化方案，所以 `AMD规范` 就此诞生
+新建一个 `commonJS.js` 文件，全部代码如下，看一遍注释，后面再略微介绍下就 OK 了，因为很简单。。
+
+```js
+let path = require('path');
+let fs = require('fs');
+let vm = require('vm');
+
+let n = 0
+
+// 构造函数Module
+function Module(filename){
+  this.id = n++; // 唯一ID
+  this.filename = filename; // 文件的绝对路径
+  this.exports = {}; // 模块对应的导出结果
+}
+
+// 存放可解析的文件模块扩展名
+Module._extensions = ['.js'];
+// 缓存
+Module._cache = {};
+// 拼凑成闭包的数组
+Module.wrapper = ['(function(exports,require,module){','\r\n})'];
+
+// 没写扩展名，默认添加扩展名
+Module._resolveFilename = function (p) {
+  p = path.join(__dirname, p);
+  if(!/\.\w+$/.test(p)){
+    //如果没写扩展名,尝试添加扩展名
+    for(let i = 0; i < Module._extensions.length; i++){
+      //拼接出一个路径
+      let filePath = p + Module._extensions[i];
+      // 判断文件是否存在
+      try{
+        fs.accessSync(filePath);
+        return filePath;
+      }catch (e) {
+        throw new Error('module not found')
+      }
+    }
+  }else {
+    return p
+  }
+}
+
+// 加载模块本身
+Module.prototype.load = function () {
+  // 解析文件后缀名 isboyjc.js -> .js
+  let extname = path.extname(this.filename);
+  // 调用对应后缀文件加载方法
+  Module._extensions[extname](this);
+};
+
+// 后缀名为js的加载方法
+Module._extensions['.js'] = function (module) {
+  // 读文件
+  let content = fs.readFileSync(module.filename, 'utf8');
+  // 形成闭包函数字符串
+  let script = Module.wrapper[0] + content + Module.wrapper[1];
+  // 创建沙箱环境，运行并返回结果
+  let fn = vm.runInThisContext(script);
+  // 执行闭包函数，将被闭包函数包裹的加载内容
+  fn.call(module, module.exports, req, module)
+};
+
+// 仿require方法, 实现加载模块
+function req(path) {
+  // 根据输入的路径 转换绝对路径
+  let filename = Module._resolveFilename(path);
+  // 查看缓存是否存在，存在直接返回缓存
+  if(Module._cache[filename]){
+      return Module._cache[filename].exports;
+  }
+  // 通过文件名创建一个Module实例
+  let module = new Module(filename);
+  // 加载文件，执行对应加载方法
+  module.load();
+  // 入缓存
+  Module._cache[filename] = module;
+  return module.exports
+}
+
+let str = req('./test');
+console.log(str);
+```
+
+如上，附带注释也不过 80 行代码。
+
+介绍下，首先我们写了一个构造函数 `Module`，其中 `id` 是唯一ID，`filename` 存文件的绝对路径，`exports` 存模块对应的导出结果
+
+我们还为 Module  添加了几个静态属性，其中 `_extensions`  存放可解析模块扩展名，而在后面将扩展名作为 key，添加其解析方法。`_cache` 则是缓存加载过的模块，`wrapper` 是一个数组，包含两个字符串项，两个字符串合起来就是一个函数字符串，它作为我们后面拼凑函数的数组。
+
+其次还添加了一个静态方法 `_resolveFilename` 用于解析文件完整路径，还有一个比较核心的原型方法 `load` ，用于加载模块。
+
+平常我们使用 node 加载模块时，使用的是 `require` 方法，而我们手写则是用 `req` 方法，该方法传入一个文件路径（可省略后缀），方法中我们首先调用构造函数 Module 的 `_resolveFilename` 方法把传入的路径解析成一个绝对路径 `filename`，接着校验 `_cache` 对象中是否存在以 `filename` 路径为 key 的值，如果有，直接读取缓存。
+
+如果缓存中没有，new 一个 Module 实例，再调用 `load` 方法加载模块。
+
+最重要的是 `load` 的过程，`load` 首先解析 `filename` 字符串，拿到文件的后缀名，通过调用 `_extensions` 中后缀名对应的方法加载对应文件，我们在代码中，已经为 `Module._extensions['.js']` 添加了对应解析方法，也就是解析 js 后缀的文件。
+
+文中的文件是 `test.js`，其后缀是 `.js`，正好对应，调用该方法，传入 this（即 module 实例）。
+
+目光来到  `Module._extensions['.js']` 方法，其实也简单，首先通过 `filename` 读取该文件内容，接着，开始拼凑一个方法，也就是下面这行代码：
+
+```js
+let script = Module.wrapper[0] + content + Module.wrapper[1];
+```
+
+此行代码拼凑出来的字符串 script 其实就是一个方法，只不过是字符串方法，如下：
+
+ ```js
+ 'function(exports,require,module){ test.js文件内容 }'
+ ```
+
+再接下来，就是大家不太理解的 `vm.runInThisContext` 方法了，这里简单介绍下：
+
+`vm.runInThisContext(code)` 会创建一个独立的沙箱环境，执行对参数代码 `code` 的编译，运行并返回结果。该方法运行的代码没有权限访问本地作用域，但是可以访问 Global 全局对象。
+
+这样说不理解的话，那大家总知道 `eval` 吧！其实它和 `eval` 类似，来看示例：
+
+```js
+var vm = require('vm');
+var str = '111';
+ 
+//在runInThisContext创建的沙箱环境中执行
+var vmRes = vm.runInThisContext('str = "vm222";');
+console.log('vmRes: ', vmRes); // vmRes:  vm222
+console.log('str: ', str); // str:  111
+ 
+//在eval中执行
+var evalRes = eval('str = "eval222";');
+console.log('evalRes: ', evalRes); // evalRes:  eval222
+console.log('str: ', str); // str:  eval222
+```
+
+如上，使用 `vm.runInThisContext` 执行的字符串 code 并不会改变当前作用域，而 `eval` 可以，仅此而已。
+
+思绪回来，`vm.runInThisContext(script)`  把我们拼成的字符串方法，变成了一个可执行的方法，随后调用并传入参数：
+
+```js
+fn.call(module, module.exports, req, module)
+```
+
+由于使用了 `call` 方法，所以第一个参数是将转换后的 `script` 也就是函数 fn 的 this 指向变为 当前 `module` 实例，剩余三个即函数调用参数，回顾当时拼函数时这个函数的形参与当前函数调时传入值的对比：
+
+```js
+// 原来函数
+fn = function(exports, require, module){ 
+  // test.js文件内容 
+}
+
+// 调用
+fn(module.exports, req, module)
+```
+
+三个参数分别是
+
+- module 实例的 `exports` 对象
+- req 模块导入方法
+- module 实例本身
+
+看到这里我想大家应该明白示例最开始的 `test.js` 中我们为什么可以直接使用 `module.exports` 导出了，很明显因为在加载过程中，我们把整个 `test` 文件作为一块代码塞进了匿名的加载方法中，而这个加载方法在执行时，形参中存在 `module` 实例，所以我们就可以直接操作 `module` 实例，向其 `exports` 属性中塞数据了！！！如此，一个非常简单的 commonJS 手写例子就结束了，你 Get 了吗？
+
+最后总结，**简单点说，CommonJs 就是模块化的社区标准，而 Nodejs 就是 CommonJs 模块化规范的实现**，它对模块的加载是同步的，也就是说，只有引入的模块加载完成，才会执行后面的操作，在 `Node` 服务端应用当中，模块一般存在本地，加载较快，同步问题不大，在浏览器中就不太合适了，你试想一下，如果一个很大的项目，所有的模块都同步加载，那体验是极差的，所以还需要异步模块化方案，所以 `AMD规范` 就此诞生
 
 
 
@@ -459,7 +633,7 @@ define(function(require, exports, module) {
 })
 ```
 
-和上面 `CommonJS` 、 `AMD` 类似，**`CMD` 是 `SeaJS` 在推广过程中对模块定义的规范化产出** ，而 `CMD` 规范以及 `SeaJS` 在国内曾经十分被推崇，原因不只是因为它足够简单方便，更是因为 `SeaJS` 的作者是阿里的 `玉伯` 所写，同 Vue 一样的国人作者，堪称国人之光
+和上面 `CommonJS` 、 `AMD` 类似，**`CMD` 是 `SeaJS` 在推广过程中对模块定义的规范化产出** ，而 `CMD` 规范以及 `SeaJS` 在国内曾经十分被推崇，原因不只是因为它足够简单方便，更是因为 `SeaJS` 的作者是阿里的 `玉伯` 大佬所写，同 Vue 一样的国人作者，堪称国人之光
 
 
 
