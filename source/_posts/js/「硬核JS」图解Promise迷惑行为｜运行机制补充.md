@@ -1,10 +1,17 @@
-# 「硬核JS」图解Promise迷惑行为｜运行机制补充
+---
+title: 「硬核JS」图解Promise迷惑行为｜运行机制补充
+tags: [JavaScript, 运行机制, Promise]
+categories: 硬核JS系列
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
+date: 2021-08-19 20:00:00
+---
+<!-- more -->
 
 ## 写在前面
 
 Promise用起来很简单，JavaScript运行机制也不难，但是运行机制和 Promise 挂钩之后，往往就能把人迷的晕头转向，如果你也是如此，那此文或许能帮你解惑。
 
-前些天有几个小伙伴看了我很早之前写的 [「硬核JS」一次搞懂JS运行机制](https://juejin.cn/post/6844904050543034376) 后私信给我提出了疑问，说是运行机制是懂了，可是涉及到 Promise 的种种迷惑行为（各种嵌套输出、链式 `then` 等等）还是不太懂。其实那篇文章的核心本来就只是运行机制的概念，而对于 Promise 迷惑行为拿捏不准的小伙伴是因为对 Promise 的整体实现机制不太了解导致的。
+前些天有几个小伙伴看了我很早之前写的 [「硬核JS」一次搞懂JS运行机制](https://github.com/isboyjc/blog/issues/5) 后私信给我提出了疑问，说是运行机制是懂了，可是涉及到 Promise 的种种迷惑行为（各种嵌套输出、链式 `then` 等等）还是不太懂。其实那篇文章的核心本来就只是运行机制的概念，而对于 Promise 迷惑行为拿捏不准的小伙伴是因为对 Promise 的整体实现机制不太了解导致的。
 
 假如你不知道自己对这块是否了解，可以直接跳到最后几个小标题，看一看这些题型自己能否正确解答即可。
 
@@ -42,7 +49,7 @@ JavaScript 中有同步/异步任务的概念，同步任务在主线程上执�
 
 浏览器中加上渲染的话就是先执行一个宏任务，再执行当前所有的微任务，接着开始执行渲染，然后再执行下一个宏任务，如此循环。
 
-> 简单回顾，详细请看 👉 [「硬核JS」一次搞懂JS运行机制](https://juejin.cn/post/6844904050543034376)
+> 简单回顾，详细请看 👉 [「硬核JS」一次搞懂JS运行机制](https://github.com/isboyjc/blog/issues/5)
 
 
 
@@ -757,7 +764,7 @@ npx promises-aplus-tests Promise.js
 
 - [Promise/A+实现](https://github.com/isboyjc/promise)
 
-其实，这块儿的 Promise 的手写实现是在很久之前的 [「硬核JS」深入了解异步解决方案](https://juejin.cn/post/6844904064614924302) 一文的 Promise 章节写的，但是搞懂此文需要这块，我就 Copy 了一下稍作修改，跑了一下测试还能过证明还不算过时。
+其实，这块儿的 Promise 的手写实现是在很久之前的 [「硬核JS」深入了解异步解决方案](https://github.com/isboyjc/blog/issues/7) 一文的 Promise 章节写的，但是搞懂此文需要这块，我就 Copy 了一下稍作修改，跑了一下测试还能过证明还不算过时。
 
 注意一定要先搞懂手写实现的逻辑哦，不然下面不好懂，那接下来开始进入正文。
 

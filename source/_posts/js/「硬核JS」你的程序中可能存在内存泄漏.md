@@ -1,10 +1,7 @@
 title: 「硬核JS」你的程序中可能存在内存泄漏
-tags:
-  - JavaScript
-  - 内存泄漏
+tags: [JavaScript, 内存泄漏]
 categories: 硬核JS系列
-index_img: 'https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg'
-abbrlink: 1a61e85d
+index_img: https://gitee.com/IsboyJC/PictureBed/raw/master/other/js.jpg
 date: 2021-07-13 10:00:00
 ---
 <!-- more -->

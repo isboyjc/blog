@@ -26,6 +26,8 @@
 
 - [「硬核JS」你的程序中可能存在内存泄漏](https://github.com/isboyjc/blog/issues/36)
 
+- [「硬核JS」图解Promise迷惑行为｜运行机制补充](https://github.com/isboyjc/blog/issues/41)
+
 - 待续。。。
 
 #### 算法与数据结构
@@ -53,6 +55,12 @@
 - [Vue 项目中优雅使用 icon](https://github.com/isboyjc/blog/issues/12)
 
 - [跟着来，你也可以手写VueRouter](https://github.com/isboyjc/blog/issues/37)
+
+- 待续。。。
+
+#### 前端工程化
+
+- [https://github.com/isboyjc/blog/issues/42](「前端工程四部曲」模块化的前世今生（上）)
 
 - 待续。。。
 
