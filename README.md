@@ -60,7 +60,7 @@
 
 #### 前端工程化
 
-- [https://github.com/isboyjc/blog/issues/42](「前端工程四部曲」模块化的前世今生（上）)
+- [「前端工程四部曲」模块化的前世今生（上）](https://github.com/isboyjc/blog/issues/42)
 
 - 待续。。。
 
