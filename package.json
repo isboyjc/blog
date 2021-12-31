@@ -22,7 +22,7 @@
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
-    "hexo-theme-fluid": "^1.8.11",
+    "hexo-theme-fluid": "^1.8.14",
     "hexo-theme-landscape": "^0.0.3"
   },
   "author": "isboyjc",
