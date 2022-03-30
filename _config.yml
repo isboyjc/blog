@@ -13,8 +13,8 @@ timezone: ''
 
 # URL
 ## 如果您的站点位于子目录中，请将url设置为“http://your site.com/child”，将root设置为“/child/”
-url: https://isboyjc.com/blog
-root: /blog/
+url: https://isboyjc.com
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults: 
 pretty_urls:
@@ -23,7 +23,7 @@ pretty_urls:
 
 # Directory
 source_dir: source
-public_dir: public
+public_dir: dist
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
