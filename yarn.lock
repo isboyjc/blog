@@ -563,6 +563,11 @@ hexo-server@^2.0.0:
     open "^7.0.0"
     serve-static "^1.14.1"
 
+hexo-theme-fluid@^1.8.11:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/hexo-theme-fluid/-/hexo-theme-fluid-1.9.4.tgz#a83dc3e2d24fb74bec2bb32c15b544c055e3445f"
+  integrity sha512-EaXUh4J6mQZjzKnyNtYHt0U0rIIlGJMsiT+IYHhKXnNrQyaOqMz3H9QC7+o37yzssARiPG3Uc0RtHn3S1DRLoQ==
+
 hexo-theme-landscape@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/hexo-theme-landscape/-/hexo-theme-landscape-0.0.3.tgz#87d1f4d613da9be5245dad0d4b80479eab70d386"
@@ -777,9 +782,9 @@ minimatch@^3.0.2, minimatch@^3.0.4:
     brace-expansion "^1.1.7"
 
 minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
+  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 mkdirp@0.5.x:
   version "0.5.5"
