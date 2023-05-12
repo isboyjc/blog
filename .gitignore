@@ -11,6 +11,8 @@
 
 # production
 /build
+/dist
+/docs/.vitepress/dist
 
 # misc
 .DS_Store

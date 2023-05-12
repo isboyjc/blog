@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2023-05-12 17:33:47
+ * @LastEditTime: 2023-05-12 17:43:36
  * @Description: ...
  * @Date: 2023-02-15 01:12:53
  * @Author: isboyjc
@@ -102,8 +102,8 @@ export default defineConfig({
           },
           { text: 'CSS', link: '/interview/css/css' },
           // { text: 'Vue', link: '/interview/vue/vue' },
-          { text: 'React', link: '/interview/react/react' },
-          { text: '其他', link: '/interview/other/other' }
+          // { text: 'React', link: '/interview/react/react' },
+          // { text: '其他', link: '/interview/other/other' }
         ],
       },
       { text: 'Vue3+Vite实战', link: '/vue3vitepro/' },
@@ -131,7 +131,7 @@ export default defineConfig({
     lastUpdatedText:"更新时间",
 
     editLink: {
-      pattern: 'https://github.com/isboyjc/blog/tree/main/docs/:path',
+      pattern: 'https://github.com/isboyjc/blog/tree/master/docs/:path',
       text: '编辑页面'
     },
 
