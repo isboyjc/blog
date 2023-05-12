@@ -1,0 +1,1 @@
+# JS 实现发布订阅模式 / EventBus（ on、emit、once、off ）

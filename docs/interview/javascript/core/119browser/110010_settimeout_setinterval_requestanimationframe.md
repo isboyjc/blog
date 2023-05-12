@@ -1,0 +1,1 @@
+# setTimeout、setInterval、requestAnimationFrame 各有什么特点？
