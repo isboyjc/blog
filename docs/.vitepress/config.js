@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2023-05-12 17:43:36
+ * @LastEditTime: 2023-05-16 18:36:09
  * @Description: ...
  * @Date: 2023-02-15 01:12:53
  * @Author: isboyjc
@@ -82,6 +82,7 @@ export default defineConfig({
         activeMatch: `^/interview/`,
         items: [
           { text: '快速了解', link: '/interview/' },
+          { text: 'HTML', link: '/interview/html/010base/010010_stylization' },
           { 
             text: 'JavaScript', 
             // link: '/interview/javascript/core/010base/010010_stronglytype_and_weaklytype'
@@ -100,7 +101,7 @@ export default defineConfig({
               }
             ]
           },
-          { text: 'CSS', link: '/interview/css/css' },
+          { text: 'CSS', link: '/interview/css/010base/010010_css_load' },
           // { text: 'Vue', link: '/interview/vue/vue' },
           // { text: 'React', link: '/interview/react/react' },
           // { text: '其他', link: '/interview/other/other' }
@@ -250,6 +251,32 @@ export default defineConfig({
       ],
       "/interview": [
         {
+          text: 'HTML',
+          collapsed: true,
+          items: [
+            {
+              text: '基础',
+              collapsed: true,
+              items: getDirctSidebar('interview/html/010base')
+            },
+            {
+              text: '标签&属性',
+              collapsed: true,
+              items: getDirctSidebar('interview/html/020labels_attributes')
+            },
+            {
+              text: '表单',
+              collapsed: true,
+              items: getDirctSidebar('interview/html/030form')
+            },
+            {
+              text: '其他',
+              collapsed: true,
+              items: getDirctSidebar('interview/html/040other')
+            },
+          ]
+        },
+        {
           text: 'JavaScript',
           collapsed: true,
           items: [
@@ -334,8 +361,73 @@ export default defineConfig({
         {
           text: 'CSS',
           collapsed: true,
-          items: getDirctSidebar('interview/css')
+          items: [
+            {
+              text: '基础',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/010base')
+            },
+            {
+              text: '选择器',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/020selector')
+            },
+            {
+              text: '结构&层叠',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/030structure_stacking')
+            },
+            {
+              text: '值&单位',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/040value_unit')
+            },
+            {
+              text: '字体&文本',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/050font_text')
+            },
+            {
+              text: '视觉格式化',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/060visual_formatting')
+            },
+            {
+              text: '盒子',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/070box')
+            },
+            {
+              text: '浮动',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/080float')
+            },
+            {
+              text: '定位',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/090postion')
+            },
+            {
+              text: '布局',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/100layout')
+            },
+            {
+              text: '浏览器',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/110browser')
+            },
+            {
+              text: '其他',
+              collapsed: true,
+              items: getDirctSidebar('interview/css/120other')
+            },
+          ]
         },
+        // {
+        //   text: '算法与数据结构',
+        //   collapsed: true
+        // },
         // {
         //   text: 'React',
         //   collapsed: true,

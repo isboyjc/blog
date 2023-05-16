@@ -1,4 +1,4 @@
-# CSS 中 link 和 @import 区别？
+# 导入 CSS 时 link 和 @import 区别？
 
 两者都是外部引用CSS的方式，它们的区别如下：
 
