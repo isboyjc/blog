@@ -2,9 +2,8 @@
 
 ## 题干
 
-var
-
-let、const
+- var
+- let、const
 
 ## 题解
 
@@ -26,5 +25,7 @@ let、const
 
 
 ## 相关
+
+[变量提升](./010050_variable_elevation.md)
 
 [暂时性死区（TDZ）](./010055_tdz.md)

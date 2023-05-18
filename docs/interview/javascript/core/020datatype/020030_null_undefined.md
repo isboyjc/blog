@@ -2,7 +2,7 @@
 
 ## 题干
 
-`null` 和 `undefined` 区别
+- `null` 和 `undefined` 区别
 
 ## 题解
 

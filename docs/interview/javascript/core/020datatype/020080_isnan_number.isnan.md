@@ -2,7 +2,7 @@
 
 ## 题干
 
-`isNaN` 和 `Number.isNaN` 函数区别
+- `isNaN` 和 `Number.isNaN` 函数区别
 
 ## 题解
 
