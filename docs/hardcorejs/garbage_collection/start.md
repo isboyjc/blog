@@ -16,7 +16,7 @@ V8 引擎对垃圾回收进行了哪些优化？
 
 当然，我们可不仅仅是为了面试，其目的是一次性彻底搞懂 GC！假如你对其中某块内容不太理解，不要着急，先读完整篇文章了解内容再回过头来仔细看一遍就会清晰很多，干货满满，先赞后看哦
 
-![](http://qiniuimages.isboyjc.com/PictureBed/other/image-20210626153042478.png)
+![](https://qiniu.isboyjc.com/PictureBed/other/image-20210626153042478.png)
 
 
 

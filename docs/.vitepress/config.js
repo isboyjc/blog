@@ -52,7 +52,7 @@ export default defineConfig({
   title: '不正经的前端',
   description: '是前端，又不只是前端，分享前端开发的点滴！',
   head: [
-    ['link', { rel: 'icon', href: 'http://qiniuimages.isboyjc.com/picgo/202302150128528.ico', type: 'image/ico' }],
+    ['link', { rel: 'icon', href: 'https://qiniu.isboyjc.com/picgo/202302150128528.ico', type: 'image/ico' }],
     // ['link', { rel: 'alternate icon', href: 'https://cdn.jsdelivr.net/gh/isboyjc/static/woniu.png', type: 'image/png', sizes: '16x16' }],
   ],
   // 清洁路由 - 删除.html后缀，需服务器支持
@@ -71,7 +71,7 @@ export default defineConfig({
       gongzhonghao: "/gongzhonghao.jpeg"
     },
     
-    // logo: 'http://qiniuimages.isboyjc.com/picgo/202303141702350.png',
+    // logo: 'https://qiniu.isboyjc.com/picgo/202303141702350.png',
     logo: '/logo.jpg',
 
     nav: [

@@ -4,7 +4,7 @@
 
 下面是盒模型的层叠规则：
 
-![](http://qiniuimages.isboyjc.com/picgo/202302180212151.png)
+![](https://qiniu.isboyjc.com/picgo/202302180212151.png)
 
 对于上图，由上到下分别是：
 

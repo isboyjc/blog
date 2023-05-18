@@ -10,7 +10,7 @@ hero:
   text: Isboyjc
   tagline: 是前端，又不只是前端，分享前端开发的点滴！
   image:
-    src: http://qiniuimages.isboyjc.com/picgo/202303141640806.svg
+    src: https://qiniu.isboyjc.com/picgo/202303141640806.svg
     alt: isboyjc
   actions:
     # - theme: brand
