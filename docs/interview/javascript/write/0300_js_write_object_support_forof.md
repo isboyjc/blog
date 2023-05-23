@@ -1,10 +1,11 @@
-# 如何使用 for...of 遍历普通对象？
+# 手写实现让普通对象支持 for...of 遍历
 
 ## 题干
 
 - for...of 遍历对象
 
 ## 题解
+
 
 `for...of` 是 `ES6` 新增的遍历语法，具有迭代器（`iterator`）接口，就可以用其循环遍历它的成员 (属性值 `value`)。可以中断该循环。
 
@@ -51,8 +52,10 @@ for(let item of obj) {
 }
 ```
 
+
+
 ## 相关
 
-[for...of、 for...in 和 forEach、map 的区别](../040array/040060_foreach_map_forof_forin.md)
+[如何使用 for...of 遍历普通对象](../030object/030050_forof_in_object.md)
 
-[手写实现让普通对象支持 for...of 遍历](../../write/0300_js_write_object_support_forof.md)
+[for...of、 for...in 和 forEach、map 的区别](../040array/040060_foreach_map_forof_forin.md)
