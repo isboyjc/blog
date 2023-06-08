@@ -1,4 +1,4 @@
-# 手写实现让普通对象支持 for...of 遍历
+# 实现让普通对象支持 for...of 遍历
 
 ## 题干
 
@@ -56,6 +56,6 @@ for(let item of obj) {
 
 ## 相关
 
-[如何使用 for...of 遍历普通对象](../030object/030050_forof_in_object.md)
+[如何使用 for...of 遍历普通对象](../core/030object/030050_forof_in_object.md)
 
-[for...of、 for...in 和 forEach、map 的区别](../040array/040060_foreach_map_forof_forin.md)
+[for...of、 for...in 和 forEach、map 的区别](../core/040array/040060_foreach_map_forof_forin.md)
