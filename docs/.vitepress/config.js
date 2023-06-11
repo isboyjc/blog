@@ -1,5 +1,12 @@
 /*
- * @LastEditTime: 2023-05-16 18:36:09
+ * @LastEditTime: 2023-06-11 23:28:38
+ * @Description: ...
+ * @Date: 2023-06-08 18:59:10
+ * @Author: isboyjc
+ * @LastEditors: isboyjc
+ */
+/*
+ * @LastEditTime: 2023-06-11 14:06:35
  * @Description: ...
  * @Date: 2023-02-15 01:12:53
  * @Author: isboyjc
@@ -7,46 +14,7 @@
  */
 import { defineConfigWithTheme,defineConfig } from 'vitepress'
 // import { withMermaid } from "vitepress-plugin-mermaid";
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-function getDirctSidebar(pathname) {
-  const p = path.resolve(__dirname, '../', pathname)
-  if(!fs.existsSync(p)) return []
-  const dirct = fs.readdirSync(p)
-                  .filter(v=>v.endsWith('.md'))
-                  .sort((a, b) => {
-                    if(a==='index.md') return 1
-                    if(a[0]!=='2') return 1
-                    return a>b ? -1 : 1
-                  })
-  return dirct.map(dir=>{
-    const file = fs.readFileSync(path.resolve(p,dir)).toString()
-    let text = dir
-    let lines = file.split('\n')
-    const line = lines.shift()
-    if(line.startsWith('# ')){
-      text = line.replace('# ','')
-    }else{
-      if(line.startsWith('---')){
-        const index = lines.findIndex(v=>v.startsWith('---'))
-        lines = lines.slice(index+1).filter(v=>v)
-        if(lines[0].startsWith('# ')){
-          text = lines[0].replace('# ','')
-        }
-      }
-    }
-    return {
-      text,
-      link: `/${pathname}/${dir.replace('.md','')}`
-    }
-  })
-}
-
+import getDirctSidebar from "./sidebar"
 
 export default defineConfig({
   title: '不正经的前端',
@@ -75,33 +43,32 @@ export default defineConfig({
     logo: '/logo.jpg',
 
     nav: [
-      // { text: 'Web3', link: '/web3/' },
       // { text: '🔥硬核JS', link: '/hardcorejs/' },
       { 
         text: '🔥面试', 
         activeMatch: `^/interview/`,
         items: [
           { text: '快速了解', link: '/interview/' },
-          { text: 'HTML', link: '/interview/html/010base/010010_stylization' },
+          { text: 'HTML', link: '/interview/01html/010base/010010_stylization' },
           { 
             text: 'JavaScript', 
-            // link: '/interview/javascript/core/010base/010010_stronglytype_and_weaklytype'
+            // link: '/interview/03javascript/core/010base/010010_stronglytype_and_weaklytype'
             items: [
               {
                 text: '理论题', 
-                link: '/interview/javascript/core/010base/010010_stronglytype_and_weaklytype' 
+                link: '/interview/03javascript/core/010base/010010_stronglytype_and_weaklytype' 
               },
               {
                 text: '手写题', 
-                link: '/interview/javascript/write/0010_js_write_map' 
+                link: '/interview/03javascript/write/0010_js_write_map' 
               },
               {
                 text: '输出题', 
-                link: '/interview/javascript/output/010_js_op' 
+                link: '/interview/03javascript/output/010_js_op' 
               }
             ]
           },
-          { text: 'CSS', link: '/interview/css/010base/010010_css_load' },
+          { text: 'CSS', link: '/interview/02css/010base/010010_css_load' },
           // { text: 'Vue', link: '/interview/vue/vue' },
           // { text: 'React', link: '/interview/react/react' },
           // { text: '其他', link: '/interview/other/other' }
@@ -140,88 +107,16 @@ export default defineConfig({
       "/hardcorejs":[
         {
           text: '硬核JS',
-          // TODO del
           collapsible: true,
           collapsed: false,
           items: [
             {
               text: '快速了解', link: '/hardcorejs/index'
             },
-            {
-              text: 'JS运行机制',
-              collapsible: true,
-              collapsed: true,
-              items: getDirctSidebar("hardcorejs/eventloop"),
-            },
-            {
-              text: '异步解决方案',
-              collapsible: true,
-              collapsed: true,
-              items: getDirctSidebar("hardcorejs/asynchronous"),
-            },
-            {
-              text: '数字之美',
-              collapsible: true,
-              collapsed: true,
-              items: [
-                {
-                  text: '前言',
-                  link: "/hardcorejs/number/start"
-                },
-                ...getDirctSidebar("hardcorejs/number/core"),
-                {
-                  text: '最后',
-                  link: "/hardcorejs/number/end"
-                },
-              ],
-            },
-            {
-              text: '位运算',
-              collapsible: true,
-              collapsed: true,
-              items: [
-                {
-                  text: '前言',
-                  link: "/hardcorejs/bitwise_operation/start"
-                },
-                ...getDirctSidebar("hardcorejs/bitwise_operation/core"),
-                {
-                  text: '最后',
-                  link: "/hardcorejs/bitwise_operation/end"
-                },
-              ],
-            },
-            {
-              text: '垃圾回收机制',
-              collapsible: true,
-              collapsed: true,
-              items: [
-                {
-                  text: '前言',
-                  link: "/hardcorejs/garbage_collection/start"
-                },
-                ...getDirctSidebar("hardcorejs/garbage_collection/01"),
-                {
-                  text: 'V8中的GC',
-                  collapsible: true,
-                  collapsed: false,
-                  items: getDirctSidebar("hardcorejs/garbage_collection/02")
-                },
-                {
-                  text: '最后',
-                  link: "/hardcorejs/garbage_collection/end"
-                },
-              ]
-            },
-            {
-              text: '内存泄漏',
-              collapsible: true,
-              collapsed: true,
-              items: getDirctSidebar("hardcorejs/memory_leak"),
-            },
           ]
         },
       ],
+
       "/vue3vitepro":[
         {
           text: 'Vue3+Vite实战',
@@ -231,213 +126,86 @@ export default defineConfig({
             {
               text: '快速了解', link: '/vue3vitepro/'
             },
-            {
-              text: '准备工作', items: getDirctSidebar("vue3vitepro/core/01.init")
-            },
-            {
-              text: '多布局', items: getDirctSidebar("vue3vitepro/core/02.layout")
-            },
-            {
-              text: '模式切换', items: getDirctSidebar("vue3vitepro/core/03.mode")
-            },
-            {
-              text: '正则校验工具', items: getDirctSidebar("vue3vitepro/core/04.regular")
-            },
+            ...getDirctSidebar('vue3vitepro/core', {
+              ignoreList: [],
+              collapsed: true,
+              fileNameHash: {
+                'vue3vitepro/index': '快速了解',
+                "vue3vitepro/core/01.init": '准备工作',
+                "vue3vitepro/core/02.layout": '多布局',
+                "vue3vitepro/core/03.mode": '模式切换',
+                "vue3vitepro/core/04.regular": '正则校验工具',
+                'vue3vitepro/other': 'ING...',
+              }
+            }),
             {
               text: 'ING...', link: '/vue3vitepro/other'
             }
           ]
         },
       ],
+
       "/interview": [
         {
-          text: 'HTML',
-          collapsed: true,
-          items: [
-            {
-              text: '基础',
-              collapsed: true,
-              items: getDirctSidebar('interview/html/010base')
-            },
-            {
-              text: '标签&属性',
-              collapsed: true,
-              items: getDirctSidebar('interview/html/020labels_attributes')
-            },
-            {
-              text: '表单',
-              collapsed: true,
-              items: getDirctSidebar('interview/html/030form')
-            },
-            {
-              text: '其他',
-              collapsed: true,
-              items: getDirctSidebar('interview/html/040other')
-            },
-          ]
+          text: '快速了解', link: '/interview/index.md'
         },
-        {
-          text: 'JavaScript',
+        ...getDirctSidebar('interview', {
+          ignoreList: [
+            'interview/index',
+            'interview/vue', 
+            'interview/react', 
+            'interview/webpack', 
+            'interview/other', 
+            'interview/algorithm'
+          ],
           collapsed: true,
-          items: [
-            {
-              text: '理论题',
-              collapsed: false,
-              items: [
-                {
-                  text: '基础',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/010base')
-                },
-                {
-                  text: '数据类型',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/020datatype')
-                },
-                {
-                  text: '对象',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/030object')
-                },
-                {
-                  text: '数组',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/040array')
-                },
-                {
-                  text: '函数',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/050function')
-                },
-                {
-                  text: '异步',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/060asynchronous')
-                },
-                {
-                  text: '作用域',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/070scope')
-                },
-                {
-                  text: 'This',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/080this')
-                },
-                {
-                  text: '原型',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/090prototype')
-                },
-                {
-                  text: '事件循环',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/100eventloop')
-                },
-                {
-                  text: '浏览器对象',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/110browser')
-                },
-                {
-                  text: '其他',
-                  collapsed: true,
-                  items: getDirctSidebar('interview/javascript/core/120other')
-                }
-              ]
-            },
-            {
-              text: '手写题',
-              collapsed: true,
-              items: getDirctSidebar('interview/javascript/write')
-            },
-            {
-              text: '输出题',
-              collapsed: true,
-              items: getDirctSidebar('interview/javascript/output')
-            },
-          ]
-        },
-        {
-          text: 'CSS',
-          collapsed: true,
-          items: [
-            {
-              text: '基础',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/010base')
-            },
-            {
-              text: '选择器',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/020selector')
-            },
-            {
-              text: '结构&层叠',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/030structure_stacking')
-            },
-            {
-              text: '值&单位',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/040value_unit')
-            },
-            {
-              text: '字体&文本',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/050font_text')
-            },
-            {
-              text: '视觉格式化',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/060visual_formatting')
-            },
-            {
-              text: '盒子',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/070box')
-            },
-            {
-              text: '浮动',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/080float')
-            },
-            {
-              text: '定位',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/090postion')
-            },
-            {
-              text: '布局',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/100layout')
-            },
-            {
-              text: '浏览器',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/110browser')
-            },
-            {
-              text: '其他',
-              collapsed: true,
-              items: getDirctSidebar('interview/css/120other')
-            },
-          ]
-        },
-        // {
-        //   text: '算法与数据结构',
-        //   collapsed: true
-        // },
-        // {
-        //   text: 'React',
-        //   collapsed: true,
-        //   items: getDirctSidebar('interview/react')
-        // },
-        // {
-        //   text: '其他',
-        //   collapsed: true,
-        //   items: getDirctSidebar('interview/other')
-        // },
+          fileNameHash: {
+            'interview/01html': 'HTML',
+            'interview/01html/010base': '基础',
+            'interview/01html/020labels_attributes': '标签&属性',
+            'interview/01html/030form': '表单',
+            'interview/01html/040other': '其他',
+            
+            'interview/02css': 'CSS',
+            'interview/02css/010base': '基础',
+            'interview/02css/020selector': '选择器',
+            'interview/02css/030structure_stacking': '结构&层叠',
+            'interview/02css/040value_unit': '值&单位',
+            'interview/02css/050font_text': '字体&文本',
+            'interview/02css/060visual_formatting': '视觉格式化',
+            'interview/02css/070box': '盒子',
+            'interview/02css/080float': '浮动',
+            'interview/02css/090postion': '定位',
+            'interview/02css/100layout': '布局',
+            'interview/02css/110browser': '浏览器',
+            'interview/02css/120other': '其他',
+  
+            'interview/03javascript': 'JavaScript',
+            'interview/03javascript/core': '理论题',
+            'interview/03javascript/core/010base': '基础',
+            'interview/03javascript/core/020datatype': '数据类型',
+            'interview/03javascript/core/030object': '对象',
+            'interview/03javascript/core/040array': '数组',
+            'interview/03javascript/core/050function': '函数',
+            'interview/03javascript/core/060asynchronous': '异步',
+            'interview/03javascript/core/070scope': '作用域',
+            'interview/03javascript/core/080this': 'This',
+            'interview/03javascript/core/090prototype': '原型',
+            'interview/03javascript/core/100eventloop': '事件循环',
+            'interview/03javascript/core/110browser': '浏览器对象',
+            'interview/03javascript/core/120other': '其他',
+            'interview/03javascript/write': '手写题',
+            'interview/03javascript/output': '输出题',
+  
+            'interview/vue': 'Vue',
+            'interview/react': 'React',
+            'interview/webpack': 'Webpack',
+            'interview/algorithm': '算法',
+            'interview/other': '其他'
+          },
+          generateDirectoryName: 'interview_dir',
+          generateDirectoryPath: '../'
+        })
       ],
       '/': [
         // {
