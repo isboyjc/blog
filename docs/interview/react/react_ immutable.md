@@ -1,1 +1,0 @@
-# 谈谈对 immutable 的理解？如何应用在 react 项目中？

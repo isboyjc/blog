@@ -1,1 +1,0 @@
-# JS 使用 settimeout 模拟实现 setinterval

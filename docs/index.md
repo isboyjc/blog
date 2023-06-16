@@ -18,7 +18,7 @@ hero:
     #   link: /hardcorejs/
     - theme: brand
       text: 面试
-      link: /interview/
+      link: https://interview.isboyjc.com
     - theme: alt
       text: Vue3+Vite项目实战
       link: /vue3vitepro/

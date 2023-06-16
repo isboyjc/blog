@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2023-06-15 17:59:14
+ * @LastEditTime: 2023-06-17 03:42:50
  * @Description: ...
  * @Date: 2023-06-08 18:59:10
  * @Author: isboyjc
@@ -44,38 +44,12 @@ export default defineConfig({
 
     nav: [
       // { text: '🔥硬核JS', link: '/hardcorejs/' },
-      { 
-        text: '🔥面试', 
-        activeMatch: `^/interview/`,
-        items: [
-          { text: '快速了解', link: '/interview/' },
-          { text: 'HTML', link: '/interview/01html/010base/010010_stylization' },
-          { 
-            text: 'JavaScript', 
-            // link: '/interview/03javascript/core/010base/010010_stronglytype_and_weaklytype'
-            items: [
-              {
-                text: '理论题', 
-                link: '/interview/03javascript/core/010base/010010_stronglytype_and_weaklytype' 
-              },
-              {
-                text: '手写题', 
-                link: '/interview/03javascript/write/0010_js_write_map' 
-              },
-              {
-                text: '输出题', 
-                link: '/interview/03javascript/output/010_js_op' 
-              }
-            ]
-          },
-          { text: 'CSS', link: '/interview/02css/010base/010010_css_load' },
-          // { text: 'Vue', link: '/interview/vue/vue' },
-          // { text: 'React', link: '/interview/react/react' },
-          // { text: '其他', link: '/interview/other/other' }
-        ],
-      },
       { text: 'Vue3+Vite实战', link: '/vue3vitepro/' },
       { text: 'TOOLSDOG', link: 'http://toolsdog.isboyjc.com' },
+      { 
+        text: '🔥面试', 
+        link: 'https://interview.isboyjc.com'
+      },
       { text: '关于我', link: '/about' },
     ],
 
@@ -145,68 +119,6 @@ export default defineConfig({
         },
       ],
 
-      "/interview": [
-        {
-          text: '快速了解', link: '/interview/index.md'
-        },
-        ...getDirctSidebar('interview', {
-          ignoreList: [
-            'interview/index',
-            'interview/vue', 
-            'interview/react', 
-            'interview/webpack', 
-            // 'interview/other', 
-            'interview/algorithm'
-          ],
-          collapsed: true,
-          fileNameHash: {
-            'interview/01html': 'HTML',
-            'interview/01html/010base': '基础',
-            'interview/01html/020labels_attributes': '标签&属性',
-            'interview/01html/030form': '表单',
-            'interview/01html/040other': '其他',
-            
-            'interview/02css': 'CSS',
-            'interview/02css/010base': '基础',
-            'interview/02css/020selector': '选择器',
-            'interview/02css/030structure_stacking': '结构&层叠',
-            'interview/02css/040value_unit': '值&单位',
-            'interview/02css/050font_text': '字体&文本',
-            'interview/02css/060visual_formatting': '视觉格式化',
-            'interview/02css/070box': '盒子',
-            'interview/02css/080float': '浮动',
-            'interview/02css/090postion': '定位',
-            'interview/02css/100layout': '布局',
-            'interview/02css/110browser': '浏览器',
-            'interview/02css/120other': '其他',
-  
-            'interview/03javascript': 'JavaScript',
-            'interview/03javascript/core': '理论题',
-            'interview/03javascript/core/010base': '基础',
-            'interview/03javascript/core/020datatype': '数据类型',
-            'interview/03javascript/core/030object': '对象',
-            'interview/03javascript/core/040array': '数组',
-            'interview/03javascript/core/050function': '函数',
-            'interview/03javascript/core/060scope': '作用域',
-            'interview/03javascript/core/070asynchronous': '异步',
-            'interview/03javascript/core/080this': 'This',
-            'interview/03javascript/core/090prototype': '原型',
-            'interview/03javascript/core/100eventloop': '事件循环',
-            'interview/03javascript/core/110browser': '浏览器对象',
-            'interview/03javascript/core/120other': '其他',
-            'interview/03javascript/write': '手写题',
-            'interview/03javascript/output': '输出题',
-  
-            'interview/vue': 'Vue',
-            'interview/react': 'React',
-            'interview/webpack': 'Webpack',
-            'interview/algorithm': '算法',
-            'interview/other': '其他'
-          },
-          generateDirectoryName: 'interview_dir',
-          generateDirectoryPath: '../'
-        })
-      ],
       '/': [
         // {
         //   text:"Vue3+Vite实战",
