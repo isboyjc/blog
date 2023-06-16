@@ -869,77 +869,29 @@
                 "link": "/interview/03javascript/core/050function/050040_function_currying"
               },
               {
-                "text": "谈谈对函数式编程的理解？",
-                "key": "/interview/03javascript/core/050function/050050_functional_programming",
-                "link": "/interview/03javascript/core/050function/050050_functional_programming"
+                "text": "什么是闭包、优缺点、应用场景？",
+                "key": "/interview/03javascript/core/050function/050050_function_closure",
+                "link": "/interview/03javascript/core/050function/050050_function_closure"
               },
               {
-                "text": "什么是高阶函数？",
+                "text": "什么是高阶函数，应用场景？",
                 "key": "/interview/03javascript/core/050function/050060_function_hoc",
                 "link": "/interview/03javascript/core/050function/050060_function_hoc"
-              }
-            ]
-          },
-          {
-            "text": "异步",
-            "collapsed": true,
-            "collapsible": true,
-            "key": "interview/03javascript/core/060asynchronous",
-            "items": [
-              {
-                "text": "什么是同步、什么是异步？",
-                "key": "/interview/03javascript/core/060asynchronous/060010_synchronous_and_asynchronous",
-                "link": "/interview/03javascript/core/060asynchronous/060010_synchronous_and_asynchronous"
               },
               {
-                "text": "简述 Promise，有几种状态、特点是什么、解决了什么问题、优缺点是什么？",
-                "key": "/interview/03javascript/core/060asynchronous/060020_promise",
-                "link": "/interview/03javascript/core/060asynchronous/060020_promise"
+                "text": "什么是函数组合，应用场景？",
+                "key": "/interview/03javascript/core/050function/050070_function_ compose",
+                "link": "/interview/03javascript/core/050function/050070_function_ compose"
               },
               {
-                "text": "Promise then 第二个参数和catch的区别是什么?",
-                "key": "/interview/03javascript/core/060asynchronous/060030_then_secondparam_and_catch",
-                "link": "/interview/03javascript/core/060asynchronous/060030_then_secondparam_and_catch"
+                "text": "什么是惰性求值，应用场景？",
+                "key": "/interview/03javascript/core/050function/050080_function_lazy_evaluation",
+                "link": "/interview/03javascript/core/050function/050080_function_lazy_evaluation"
               },
               {
-                "text": "Promise.all 和 Promise.race 的区别和使用场景？",
-                "key": "/interview/03javascript/core/060asynchronous/060040_promise_all_and_race",
-                "link": "/interview/03javascript/core/060asynchronous/060040_promise_all_and_race"
-              },
-              {
-                "text": "Promise 和 setTimeout 的区别？",
-                "key": "/interview/03javascript/core/060asynchronous/060050_promise_and_settimeout",
-                "link": "/interview/03javascript/core/060asynchronous/060050_promise_and_settimeout"
-              },
-              {
-                "text": "async/await 是什么、有什么优势、实现原理？",
-                "key": "/interview/03javascript/core/060asynchronous/060060_async_await",
-                "link": "/interview/03javascript/core/060asynchronous/060060_async_await"
-              },
-              {
-                "text": "Iterator是什么，有什么作用？",
-                "key": "/interview/03javascript/core/060asynchronous/060070_iterator",
-                "link": "/interview/03javascript/core/060asynchronous/060070_iterator"
-              },
-              {
-                "text": "Generator 函数是什么、有什么作用、使用场景？",
-                "key": "/interview/03javascript/core/060asynchronous/060080_generator",
-                "link": "/interview/03javascript/core/060asynchronous/060080_generator"
-              },
-              {
-                "text": "Generator 是如何做到中断和恢复的?",
-                "key": "/interview/03javascript/core/060asynchronous/060090_generator_Interruption_and_recovery",
-                "link": "/interview/03javascript/core/060asynchronous/060090_generator_Interruption_and_recovery"
-              },
-              {
-                "text": "async/await, generator, promise这三者的关联和区别是什么?",
-                "key": "/interview/03javascript/core/060asynchronous/060100_promise_asyncawait_generator",
-                "link": "/interview/03javascript/core/060asynchronous/060100_promise_asyncawait_generator"
-              },
-              {
-                "text": "defer 和 async ？",
-                "key": "/interview/03javascript/core/060asynchronous/060110_defer_async",
-                "link": "/interview/03javascript/core/060asynchronous/060110_defer_async"
+                "text": "谈谈对函数式编程的理解？",
+                "key": "/interview/03javascript/core/050function/050090_functional_programming",
+                "link": "/interview/03javascript/core/050function/050090_functional_programming"
               }
             ]
           },
@@ -947,22 +899,80 @@
             "text": "作用域",
             "collapsed": true,
             "collapsible": true,
-            "key": "interview/03javascript/core/070scope",
+            "key": "interview/03javascript/core/060scope",
             "items": [
               {
                 "text": "简单阐述作用域、作用域链？",
-                "key": "/interview/03javascript/core/070scope/070010_scope",
-                "link": "/interview/03javascript/core/070scope/070010_scope"
-              },
-              {
-                "text": "什么是闭包、本质是什么、优缺点、应用场景？",
-                "key": "/interview/03javascript/core/070scope/070020_closure",
-                "link": "/interview/03javascript/core/070scope/070020_closure"
+                "key": "/interview/03javascript/core/060scope/070010_scope",
+                "link": "/interview/03javascript/core/060scope/070010_scope"
               },
               {
                 "text": "什么是执行上下文、JS 有几种上下文？",
-                "key": "/interview/03javascript/core/070scope/070030_execution_context",
-                "link": "/interview/03javascript/core/070scope/070030_execution_context"
+                "key": "/interview/03javascript/core/060scope/070030_execution_context",
+                "link": "/interview/03javascript/core/060scope/070030_execution_context"
+              }
+            ]
+          },
+          {
+            "text": "异步",
+            "collapsed": true,
+            "collapsible": true,
+            "key": "interview/03javascript/core/070asynchronous",
+            "items": [
+              {
+                "text": "什么是同步、什么是异步？",
+                "key": "/interview/03javascript/core/070asynchronous/060010_synchronous_and_asynchronous",
+                "link": "/interview/03javascript/core/070asynchronous/060010_synchronous_and_asynchronous"
+              },
+              {
+                "text": "简述 Promise，有几种状态、特点是什么、解决了什么问题、优缺点是什么？",
+                "key": "/interview/03javascript/core/070asynchronous/060020_promise",
+                "link": "/interview/03javascript/core/070asynchronous/060020_promise"
+              },
+              {
+                "text": "Promise then 第二个参数和catch的区别是什么?",
+                "key": "/interview/03javascript/core/070asynchronous/060030_then_secondparam_and_catch",
+                "link": "/interview/03javascript/core/070asynchronous/060030_then_secondparam_and_catch"
+              },
+              {
+                "text": "Promise.all 和 Promise.race 的区别和使用场景？",
+                "key": "/interview/03javascript/core/070asynchronous/060040_promise_all_and_race",
+                "link": "/interview/03javascript/core/070asynchronous/060040_promise_all_and_race"
+              },
+              {
+                "text": "Promise 和 setTimeout 的区别？",
+                "key": "/interview/03javascript/core/070asynchronous/060050_promise_and_settimeout",
+                "link": "/interview/03javascript/core/070asynchronous/060050_promise_and_settimeout"
+              },
+              {
+                "text": "async/await 是什么、有什么优势、实现原理？",
+                "key": "/interview/03javascript/core/070asynchronous/060060_async_await",
+                "link": "/interview/03javascript/core/070asynchronous/060060_async_await"
+              },
+              {
+                "text": "Iterator是什么，有什么作用？",
+                "key": "/interview/03javascript/core/070asynchronous/060070_iterator",
+                "link": "/interview/03javascript/core/070asynchronous/060070_iterator"
+              },
+              {
+                "text": "Generator 函数是什么、有什么作用、使用场景？",
+                "key": "/interview/03javascript/core/070asynchronous/060080_generator",
+                "link": "/interview/03javascript/core/070asynchronous/060080_generator"
+              },
+              {
+                "text": "Generator 是如何做到中断和恢复的?",
+                "key": "/interview/03javascript/core/070asynchronous/060090_generator_Interruption_and_recovery",
+                "link": "/interview/03javascript/core/070asynchronous/060090_generator_Interruption_and_recovery"
+              },
+              {
+                "text": "async/await, generator, promise这三者的关联和区别是什么?",
+                "key": "/interview/03javascript/core/070asynchronous/060100_promise_asyncawait_generator",
+                "link": "/interview/03javascript/core/070asynchronous/060100_promise_asyncawait_generator"
+              },
+              {
+                "text": "defer 和 async ？",
+                "key": "/interview/03javascript/core/070asynchronous/060110_defer_async",
+                "link": "/interview/03javascript/core/070asynchronous/060110_defer_async"
               }
             ]
           },
@@ -1423,6 +1433,49 @@
             "link": "/interview/03javascript/write/0300_js_write_object_support_forof"
           }
         ]
+      }
+    ]
+  },
+  {
+    "text": "其他",
+    "collapsed": true,
+    "collapsible": true,
+    "key": "interview/other",
+    "items": [
+      {
+        "text": "十万+ 级数据渲染？",
+        "key": "/interview/other/big_data_render",
+        "link": "/interview/other/big_data_render"
+      },
+      {
+        "text": "大文件上传如何设计实现？",
+        "key": "/interview/other/big_file_update",
+        "link": "/interview/other/big_file_update"
+      },
+      {
+        "text": "B站弹幕不挡人如何实现？",
+        "key": "/interview/other/bullet_chat",
+        "link": "/interview/other/bullet_chat"
+      },
+      {
+        "text": "自我介绍",
+        "key": "/interview/other/introduction",
+        "link": "/interview/other/introduction"
+      },
+      {
+        "text": "职业问题",
+        "key": "/interview/other/occupation",
+        "link": "/interview/other/occupation"
+      },
+      {
+        "text": "其他问题概述",
+        "key": "/interview/other/other",
+        "link": "/interview/other/other"
+      },
+      {
+        "text": "项目问题",
+        "key": "/interview/other/project",
+        "link": "/interview/other/project"
       }
     ]
   }

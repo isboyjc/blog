@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2023-06-11 23:28:38
+ * @LastEditTime: 2023-06-15 17:59:14
  * @Description: ...
  * @Date: 2023-06-08 18:59:10
  * @Author: isboyjc
@@ -155,7 +155,7 @@ export default defineConfig({
             'interview/vue', 
             'interview/react', 
             'interview/webpack', 
-            'interview/other', 
+            // 'interview/other', 
             'interview/algorithm'
           ],
           collapsed: true,
@@ -187,8 +187,8 @@ export default defineConfig({
             'interview/03javascript/core/030object': '对象',
             'interview/03javascript/core/040array': '数组',
             'interview/03javascript/core/050function': '函数',
-            'interview/03javascript/core/060asynchronous': '异步',
-            'interview/03javascript/core/070scope': '作用域',
+            'interview/03javascript/core/060scope': '作用域',
+            'interview/03javascript/core/070asynchronous': '异步',
             'interview/03javascript/core/080this': 'This',
             'interview/03javascript/core/090prototype': '原型',
             'interview/03javascript/core/100eventloop': '事件循环',
