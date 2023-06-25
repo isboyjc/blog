@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2023-06-17 03:42:50
+ * @LastEditTime: 2023-06-25 22:47:16
  * @Description: ...
  * @Date: 2023-06-08 18:59:10
  * @Author: isboyjc
@@ -21,6 +21,19 @@ export default defineConfig({
   description: '是前端，又不只是前端，分享前端开发的点滴！',
   head: [
     ['link', { rel: 'icon', href: 'https://qiniu.isboyjc.com/picgo/202302150128528.ico', type: 'image/ico' }],
+    ['script', { 
+      async: true, 
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-V722CEEP69' 
+    }],
+    ['script', {},
+      `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-V722CEEP69');
+      `
+    ]
     // ['link', { rel: 'alternate icon', href: 'https://cdn.jsdelivr.net/gh/isboyjc/static/woniu.png', type: 'image/png', sizes: '16x16' }],
   ],
   // 清洁路由 - 删除.html后缀，需服务器支持
